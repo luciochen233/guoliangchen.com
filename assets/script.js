@@ -1,5 +1,30 @@
 // guoliangchen.com — Shared JS
 (function() {
+  // Load post list
+  const postList = document.getElementById('post-list');
+  if (postList) {
+    fetch('/search-index.json')
+      .then(r => r.json())
+      .then(posts => {
+        if (posts.length === 0) {
+          postList.innerHTML = '<li style="color:#444">No posts yet</li>';
+          return;
+        }
+        // Only show type=post, newest first
+        const blogPosts = posts.filter(p => p.type === 'post').reverse();
+        postList.innerHTML = blogPosts.map(p => `
+          <li>
+            <div class="post-date">${p.date}</div>
+            <div class="post-title"><a href="${p.url}">${escapeHtml(p.title)}</a></div>
+            <div class="post-preview">${escapeHtml(p.text.substring(0, 100))}…</div>
+          </li>
+        `).join('');
+      })
+      .catch(() => {
+        postList.innerHTML = '<li style="color:#444">No posts yet</li>';
+      });
+  }
+
   // Client-side search
   const searchInput = document.getElementById('search');
   const searchResults = document.getElementById('search-results');
