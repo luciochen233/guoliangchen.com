@@ -12,7 +12,7 @@ echo "=== Building site ==="
 [ -f "$DATA_DIR/stats.json" ] || bash "$(dirname "$0")/update-stats.sh"
 
 # 2. Build search index
-bash "$(dirname "$0")/build-search.sh"
+python3 "$(dirname "$0")/build-search.py"
 
 # 3. Generate index.html from components
 # (In practice: cat templates/components/*.html with data injected)
