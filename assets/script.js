@@ -86,7 +86,7 @@
           <div class="feed-item">
             <div class="rank">${String(i + 1).padStart(2, '0')}</div>
             <div class="info">
-              <div class="title">${escapeHtml(p.title)}</div>
+              <div class="title"><a href="${p.url}" target="_blank" rel="noopener">${escapeHtml(p.title)}</a></div>
               <div class="author">${escapeHtml(p.author)}</div>
             </div>
             <div class="score">🔥 ${p.score}</div>

@@ -80,7 +80,8 @@ a:hover { text-decoration: underline; }
 }
 .feed-item:hover { transform: translateX(4px); }
 .feed-item .rank { font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; color: #222; font-weight: 700; min-width: 30px; }
-.feed-item .title { font-size: .95rem; color: #ddd; margin-bottom: 4px; }
+.feed-item .title a { color: #ddd; }
+.feed-item .title a:hover { color: var(--accent); text-decoration: none; }
 .feed-item .author { font-size: .75rem; color: var(--text-muted); }
 .feed-item .score { font-family: 'JetBrains Mono', monospace; font-size: .85rem; color: var(--accent); white-space: nowrap; }
 
