@@ -1,15 +1,20 @@
 #!/bin/bash
 # new-post.sh — Create a new blog post scaffold
-# Usage: new-post.sh "Post Title" [slug]
+# Usage: new-post.sh "Post Title"
+# Slug is auto-generated as YYYY-MM-DD-01, YYYY-MM-DD-02, etc.
 set -euo pipefail
 
 SITE_DIR="/var/www/guoliangchen.com"
 POSTS_DIR="$SITE_DIR/posts"
 DATE=$(date +%Y-%m-%d)
 
-TITLE="${1:?Usage: new-post.sh \"Post Title\" [slug]}"
-SLUG="${2:-$(echo "$TITLE" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/--*/-/g' | sed 's/^-//;s/-$//')}"
-FILE="$POSTS_DIR/${DATE}-${SLUG}.html"
+# Count existing posts for this date to determine sequence number
+COUNT=$(ls "$POSTS_DIR"/${DATE}-*.html 2>/dev/null | wc -l)
+SEQ=$(printf "%02d" $((COUNT + 1)))
+
+TITLE="${1:?Usage: new-post.sh \"Post Title\"}"
+SLUG="${DATE}-${SEQ}"
+FILE="$POSTS_DIR/${SLUG}.html"
 
 if [ -f "$FILE" ]; then
   echo "Error: $FILE already exists"
