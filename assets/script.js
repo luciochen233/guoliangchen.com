@@ -3,7 +3,7 @@
   // Load post list
   const postList = document.getElementById('post-list');
   if (postList) {
-    fetch('/search-index.json')
+    fetch('/search-index.json?v=3')
       .then(r => r.json())
       .then(posts => {
         if (posts.length === 0) {
@@ -31,7 +31,7 @@
 
   if (searchInput && searchResults) {
     let index = [];
-    fetch('/search-index.json')
+    fetch('/search-index.json?v=3')
       .then(r => r.json())
       .then(data => { index = data; })
       .catch(() => {});
