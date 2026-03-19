@@ -29,6 +29,7 @@ if os.path.isdir(POSTS_DIR):
         if not fname.endswith(".html"):
             continue
         path = os.path.join(POSTS_DIR, fname)
+        mtime = os.path.getmtime(path)
         with open(path, 'r') as f:
             content = f.read()
         index.append({
@@ -36,7 +37,8 @@ if os.path.isdir(POSTS_DIR):
             "text": extract_body(content),
             "url": f"/posts/{fname}",
             "type": "post",
-            "date": fname[:10]
+            "date": fname[:10],
+            "timestamp": mtime
         })
 
 # Write index

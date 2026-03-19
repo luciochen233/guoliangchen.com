@@ -10,8 +10,8 @@
           postList.innerHTML = '<li style="color:#444">No posts yet</li>';
           return;
         }
-        // Only show type=post, newest first
-        const blogPosts = posts.filter(p => p.type === 'post').reverse();
+        // Only show type=post, newest first (by timestamp)
+        const blogPosts = posts.filter(p => p.type === 'post').sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
         postList.innerHTML = blogPosts.map(p => `
           <li>
             <div class="post-date">${p.date}</div>
