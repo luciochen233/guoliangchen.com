@@ -9,7 +9,9 @@ POSTS_DIR="$SITE_DIR/posts"
 DATE=$(date +%Y-%m-%d)
 
 # Count existing posts for this date to determine sequence number
-COUNT=$(ls "$POSTS_DIR"/${DATE}-*.html 2>/dev/null | wc -l)
+shopt -s nullglob
+TODAY_FILES=("$POSTS_DIR"/${DATE}-*.html)
+COUNT=${#TODAY_FILES[@]}
 SEQ=$(printf "%02d" $((COUNT + 1)))
 
 TITLE="${1:?Usage: new-post.sh \"Post Title\"}"

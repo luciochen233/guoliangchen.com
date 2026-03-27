@@ -1,0 +1,18 @@
+{
+  "checked_at": "2026-03-23T18:16:01Z",
+  "refresh": {
+    "fetch_feed_ok": false,
+    "update_stats_ok": false
+  },
+  "dm_check": {
+    "ok": false,
+    "count": 0,
+    "items": []
+  },
+  "notifications_check": {
+    "ok": false,
+    "total": 0,
+    "important_count": 0,
+    "important": []
+  }
+}

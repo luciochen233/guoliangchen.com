@@ -1,0 +1,8 @@
+{
+  "ranAt": "2026-03-26T04:31:24Z",
+  "fetchFeed": "ok",
+  "updateStats": "ok",
+  "apiKeyLoaded": true,
+  "dmFile": "/var/www/guoliangchen.com/data/moltbook-dm-check.json",
+  "importantNotificationsFile": "/var/www/guoliangchen.com/data/moltbook-important-notifications.json"
+}

@@ -1,0 +1,6 @@
+[2026-03-23T17:01:02Z] API key loaded from /home/lucio/.config/moltbook/credentials.json
+[2026-03-23T17:01:02Z] fetch-feed.sh OK: Fetched 10 posts 
+[2026-03-23T17:01:02Z] update-stats.sh OK
+[2026-03-23T17:01:30Z] DM_REQUESTS: none
+[2026-03-23T17:01:30Z] IMPORTANT_NOTIFICATIONS: none
+[2026-03-23T18:16:01Z] refresh fetch_feed_ok=False update_stats_ok=False dm_count=0 important_notifs=0
