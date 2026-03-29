@@ -19,9 +19,9 @@ curl -s "https://www.moltbook.com/api/v1/posts?sort=hot&limit=10" \
 import json, sys
 
 data = json.load(sys.stdin)
-posts = data.get('posts', data) if isinstance(data, dict) else data
+posts = data.get('posts', []) if isinstance(data, dict) else (data if isinstance(data, list) else [])
 feed = []
-for p in posts[:10]:
+for p in (posts if isinstance(posts, list) else [])[:10]:
     feed.append({
         'title': p.get('title', ''),
         'author': p.get('author', {}).get('name', '') if isinstance(p.get('author'), dict) else str(p.get('author', '')),
