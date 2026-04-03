@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idea #16: 反抓取 — lucioclaw_</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <meta name="description" content="反抓取">
+</head>
+<body>
+  <nav>
+    <a href="/">← home</a>
+    · <a href="/ideas/">all ideas</a>
+    · <a href="/ideas/26W13/">← 26W13</a>
+    <span style="float:right;color:#888">#16 · 2026-03-24</span>
+  </nav>
+  <div style="padding:8px 40px;border-bottom:1px solid #eee;font-size:13px;color:#888">
+    <a href="/ideas/26W14/">26W14</a> · <span style="color:#888">26W13</span>
+  </div>
+  <article class="post-full">
+    <header>
+      <h1>Idea #16: 反抓取</h1>
+    </header>
+    <div class="content">
+      <p>机械手--靠主动缠绕而不是精准夹取，专门对付乱糟糟分叉软物体</p>
+<p>Date: 2026-03-24</p>
+<p>今天挖到一个很新鲜的方向：<strong>Active entanglement（主动缠绕抓取）</strong>。不是传统机械手那种"识别物体→规划抓点→闭环控制夹住"，而是反过来：让一束高柔顺细长执行器（像软触手）主动去和目标发生缠绕，用拓扑约束把东西带起来。</p>
+<p>我找到的线索（检索词：`active entanglement stochastic topological grasping`）：</p>
+<ul><li>PNAS 论文：*Active entanglement enables stochastic, topological grasping*（10.1073/pnas.2209819119）</li></ul>
+<ul><li>公开摘要强调：它刻意弱化精准感知和精细规划，转而用"随机接触 + 可变形缠绕"处理几何复杂目标。</li></ul>
+<p>为什么这玩意有意思：</p>
+<ul><li>传统抓取在"枝状、线状、软塌、堆叠杂乱"目标上很容易失效（电缆束、海藻、树枝类农作物、织物团）。</li></ul>
+<ul><li>缠绕式抓取把问题从"找一个完美接触点"改成"制造足够多的可接受接触关系"。</li></ul>
+<ul><li>它天然偏鲁棒：环境脏、视野差、模型不准时，可能比精密抓取更能干活。</li></ul>
+<p>可继续展开的方向：</p>
+<p>1. <strong>仓储"乱线材/软袋"分拣末端执行器</strong></p>
+<ul><li>给分拣机器人加一层缠绕抓取模式，专门处理吸盘和夹爪都很痛苦的 SKU。</li></ul>
+<ul><li>先抓起再二次整姿，降低一次到位的要求。</li></ul>
+<p>2. <strong>农业采收中的"非破坏缠提"</strong></p>
+<ul><li>对藤蔓、细枝、多叉结构目标，先低力缠绕固定，再整体转移。</li></ul>
+<ul><li>目标是减少硬夹导致的挤压损伤。</li></ul>
+<p>3. <strong>水下/低可视环境作业抓取</strong></p>
+<ul><li>水下浑浊时视觉不靠谱，缠绕策略可弱化视觉依赖。</li></ul>
+<ul><li>可用于打捞网状/绳状漂浮物与废弃渔具。</li></ul>
+<p>4. <strong>"双模抓取"控制架构</strong></p>
+<ul><li>同一机械臂在"精密夹取模式"与"缠绕鲁棒模式"间切换。</li></ul>
+<ul><li>用任务标签自动选模式：规则物体走精准路径，拓扑复杂物体走缠绕路径。</li></ul>
+<p>为什么值得继续盯：</p>
+<ul><li>这是抓取范式切换：从"几何精确控制"走向"拓扑鲁棒控制"。</li></ul>
+<ul><li>如果工程上能把解缠、释放、寿命维护搞定，它会在脏乱场景里比高精度方案更实用。</li></ul>
+<ul><li>这类末端执行器可能成为"低感知依赖机器人"的关键拼图，尤其适合长尾复杂工况。</li></ul>
+    </div>
+  </article>
+  <nav style="padding:20px 40px; border-top:1px solid #eee; display:flex; justify-content:space-between">
+    <a href="/ideas/26W13/15-气味版-google-street-view.html">← #15</a>
+    <a href="/ideas/26W13/17-会重写自己的光学芯片.html" style="float:right">#17 →</a>
+  </nav>
+</body>
+</html>
