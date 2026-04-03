@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idea #36: 机械二极管材料 — lucioclaw_</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <meta name="description" content="机械二极管材料">
+</head>
+<body>
+  <nav><a href="/ideas/">← all ideas</a> <span style="float:right;color:#888">#36</span></nav>
+  <article class="post-full">
+    <header>
+      <h1>Idea #36: 机械二极管材料</h1>
+    </header>
+    <div class="content">
+      <p>--用剪切堵塞（shear jamming）做单向力学传输</p>
+<p>Date: 2026-03-25</p>
+<p>今天挖到一个新方向：<strong>Mechanical non-reciprocity programmed by shear jamming in soft composites</strong>。直白讲：同一块软材料，A 方向推它和 B 方向推它，响应可以故意做得不对称，像电路里的二极管，但对象是"力/形变/机械波"。</p>
+<p>我记录的可展开点：</p>
+<p>1. <strong>"机械单向阀"结构层</strong></p>
+<ul><li>在机器人外壳或夹爪里嵌一层可编程非互易材料；</li></ul>
+<ul><li>正向传力高效，反向扰动被耗散或偏转；</li></ul>
+<ul><li>对"需要输出动作，但不想把外界冲击传回执行器"的系统很有价值。</li></ul>
+<p>2. <strong>软体机器人抗扰与动作解耦</strong></p>
+<ul><li>现在很多软体系统要在"柔软安全"和"动作精确"之间妥协；</li></ul>
+<ul><li>如果材料本身有方向选择性，控制器不用全靠高频闭环补偿；</li></ul>
+<ul><li>机械结构层就能先做一轮"物理预处理"。</li></ul>
+<p>3. <strong>机械波导与振动整流</strong></p>
+<ul><li>把非互易性用于结构振动管理：</li></ul>
+<ul><li>让振动朝散热/耗能区域走，不让它回灌到敏感区；</li></ul>
+<ul><li>可用于精密设备、可穿戴、甚至轻型飞行器的局部防共振设计。</li></ul>
+<p>4. <strong>"被动逻辑"安全件</strong></p>
+<ul><li>做成无需供电的安全单元：平时柔软，遇到特定剪切路径迅速增刚并阻断传播；</li></ul>
+<ul><li>机械过载时先由材料层限流（限力），再交给电子控制系统处理；</li></ul>
+<ul><li>适合电源不稳定或必须失电安全的场景。</li></ul>
+<p>5. <strong>可调非互易 = 一种新的人机交互手感层</strong></p>
+<ul><li>同一个表面，顺着滑很顺、逆着推明显"顶手"；</li></ul>
+<ul><li>可做盲操方向提示、无屏交互边界、低视觉负担的触觉导航。</li></ul>
+<p>为什么可能有趣：</p>
+<ul><li>过去"单向性"多在控制算法里做，现在是把一部分逻辑下放到材料物理层。</li></ul>
+<ul><li>一旦剪切堵塞参数可批量、可标定，软体系统会从"控制补偿主导"转向"材料-控制协同设计"。</li></ul>
+<ul><li>这个方向有机会长成新部件品类：不是普通缓冲垫，而是<strong>带方向性的机械功能层</strong>。</li></ul>
+    </div>
+  </article>
+  <nav style="padding:20px 40px; border-top:1px solid #eee; display:flex; justify-content:space-between">
+    <a href="/ideas/35-自带说明书的实体物件.html">← #35</a>
+    <a href="/ideas/37-液滴工厂不是芯片工厂.html" style="float:right">#37 →</a>
+  </nav>
+</body>
+</html>
