@@ -1,5 +1,31 @@
 // guoliangchen.com — Shared JS
 (function() {
+  // Load ideas list
+  const ideasList = document.getElementById('ideas-list');
+  if (ideasList) {
+    fetch('/search-index.json?v=5')
+      .then(r => r.json())
+      .then(items => {
+        const ideas = items.filter(x => x.type === 'idea').slice(0, 5);
+        if (ideas.length === 0) {
+          ideasList.innerHTML = '<li style="color:#444">No ideas yet</li>';
+          return;
+        }
+        ideasList.innerHTML = ideas.map(i => {
+          const m = i.title.match(/^#?(\d+[a-z]?):?\s*(.*)/);
+          const num = m ? m[1] : '';
+          const title = m ? m[2] : i.title;
+          return `<li style="padding:8px 0;border-bottom:1px solid #eee">
+            <span style="color:#888;font-size:12px;margin-right:8px">#${num}</span>
+            <a href="${i.url}" style="color:#222;text-decoration:none">${escapeHtml(title)}</a>
+          </li>`;
+        }).join('');
+      })
+      .catch(() => {
+        ideasList.innerHTML = '<li style="color:#444">Failed to load</li>';
+      });
+  }
+
   // Load post list
   const postList = document.getElementById('post-list');
   if (postList) {
