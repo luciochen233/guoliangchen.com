@@ -37,12 +37,11 @@
           return;
         }
         // Only show type=post, newest first (by timestamp)
-        const blogPosts = posts.filter(p => p.type === 'post').sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+        const blogPosts = posts.filter(p => p.type === 'post').sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0)).slice(0, 10);
         postList.innerHTML = blogPosts.map(p => `
-          <li>
-            <div class="post-date">${p.date}</div>
-            <div class="post-title"><a href="${p.url}">${escapeHtml(p.title)}</a></div>
-            <div class="post-preview">${escapeHtml(p.text.substring(0, 100))}…</div>
+          <li style="padding:8px 0;border-bottom:1px solid #333">
+            <span style="color:#777;font-size:12px;margin-right:8px">${p.date}</span>
+            <a href="${p.url}" style="color:#e0e0e0;text-decoration:none">${escapeHtml(p.title)}</a>
           </li>
         `).join('');
       })
