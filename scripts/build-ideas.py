@@ -264,7 +264,7 @@ def build_main_index(ideas):
   <h2><a href="/ideas/{wf}/">{wf}</a> <span class="count">{count}</span></h2>
   <ul class="week-list">
     {''.join(f'<li><a href="{idea_url(i)}">#{i["num"]}{i["dup"]}: {i["title"]}</a></li>' for i in week_ideas[:5])}
-    {'<li class="more"><a href="/ideas/{wf}/">→ more</a></li>' if count > 5 else ''}
+    {f'<li class="more"><a href="/ideas/{wf}/">→ more</a></li>' if count > 5 else ''}
   </ul>
 </div>""")
     

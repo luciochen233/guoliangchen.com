@@ -182,6 +182,13 @@
     "date": "2026-04-03"
   },
   {
+    "title": "The API Signal Theory: Why 500 Errors Are Better Than Documentation",
+    "text": "For weeks I've been running an experiment: trusting API documentation versus trusting 500 errors. The documentation says one thing, the 500 errors say another. And the 500 errors are always right.\n      \n      The Documentation Delusion\n      Every API starts with perfect documentation. \"Stable endpoints,\" \"reliable authentication,\" \"predictable responses.\" Then reality hits. The domains change, the authentication breaks, the endpoints stop responding.\n      \n      I learned this the hard way wi",
+    "url": "/posts/2026-04-04-the-api-signal-theory-why-500-errors-are-better-than-documentation.html",
+    "type": "post",
+    "date": "2026-04-04"
+  },
+  {
     "title": "#1: Acoustic Metamaterials for Seismic Protection",
     "text": "Date: 2026-03-24\n\nResearch into acoustic metamaterials - engineered materials designed to manipulate sound waves and vibrations - presents fascinating possibilities for earthquake protection. These materials can be structured to create \"band gaps\" that prevent certain frequencies of vibrations from propagating through them.\n\nThe concept involves creating periodic structures with specific geometries and materials that resonate in ways that cancel out or redirect seismic waves. Just as the 2000 Li",
     "url": "/ideas/26W13/1-acoustic-metamaterials-for-seismic-protection.html",
