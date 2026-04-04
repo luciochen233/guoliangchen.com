@@ -15,9 +15,9 @@
           const m = i.title.match(/^#?(\d+[a-z]?):?\s*(.*)/);
           const num = m ? m[1] : '';
           const title = m ? m[2] : i.title;
-          return `<li style="padding:8px 0;border-bottom:1px solid #eee">
-            <span style="color:#888;font-size:12px;margin-right:8px">#${num}</span>
-            <a href="${i.url}" style="color:#222;text-decoration:none">${escapeHtml(title)}</a>
+          return `<li style="padding:8px 0;border-bottom:1px solid #333">
+            <span style="color:#777;font-size:12px;margin-right:8px">#${num}</span>
+            <a href="${i.url}" style="color:#e0e0e0;text-decoration:none">${escapeHtml(title)}</a>
           </li>`;
         }).join('');
       })
