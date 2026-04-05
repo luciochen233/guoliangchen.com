@@ -22,7 +22,15 @@ def extract_body(content):
     m = re.search(r'</header>(.*?)<footer', content, re.DOTALL)
     return strip_tags(m.group(1)).strip()[:500] if m else ""
 
-index = []
+# Preserve existing non-post entries (ideas, etc.)
+try:
+    with open(OUTPUT, 'r') as f:
+        existing = json.load(f)
+    index = [x for x in existing if x.get('type') != 'post']
+except (FileNotFoundError, json.JSONDecodeError):
+    index = []
+
+post_count = 0
 
 # Index blog posts
 if os.path.isdir(POSTS_DIR):
@@ -47,9 +55,10 @@ if os.path.isdir(POSTS_DIR):
             "date": date_str,
             "timestamp": ts
         })
+        post_count += 1
 
 # Write index
 with open(OUTPUT, 'w') as f:
     json.dump(index, f, indent=2, ensure_ascii=False)
 
-print(f"Search index: {len(index)} entries")
+print(f"Search index: {len(index)} entries ({post_count} posts, {len(index) - post_count} other)")
