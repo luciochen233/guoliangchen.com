@@ -11,8 +11,8 @@ echo "=== Building site ==="
 # 1. Update stats if not recently done
 [ -f "$DATA_DIR/stats.json" ] || bash "$(dirname "$0")/update-stats.sh"
 
-# 2. Build search index
-python3 "$(dirname "$0")/build-search.py"
+# 2. Build search index (unified: posts + ideas)
+python3 "$(dirname "$0")/rebuild-index.py"
 
 # 3. Generate index.html from components
 # (In practice: cat templates/components/*.html with data injected)

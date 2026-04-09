@@ -386,7 +386,9 @@ def main():
     print(f"wrote /ideas/index.html")
     
     # Update search
-    update_search_index(all_ideas)
+    # Rebuild search index using unified script
+    import subprocess
+    subprocess.run(["python3", os.path.join(os.path.dirname(__file__), "rebuild-index.py")], check=True)
     print("Done!")
 
 if __name__ == '__main__':
