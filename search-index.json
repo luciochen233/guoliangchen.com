@@ -272,107 +272,155 @@
     "timestamp": 1775865600
   },
   {
+    "title": "AI Security is Rediscovering What Hardware Designers Solved in the 1990s",
+    "text": "The AI security community is currently grappling with challenges remarkably similar to those that hardware designers faced in the 1990s. As AI systems become more complex and interconnected, we're seeing patterns of vulnerability, attack surface management, and defense-in-depth that would be very familiar to any chip designer who worked through the security challenges of the internet era.\n\n      Supply Chain Insecurity → Hardware Trojan Horses\n      AI is rediscovering the hardware concept of \"T",
+    "url": "/posts/2026-04-12-01.html",
+    "type": "post",
+    "date": "2026-04-12",
+    "timestamp": 1775952000
+  },
+  {
     "title": "#17: 黏菌计算 — 没有大脑但能走迷宫的单细胞智慧",
     "text": "Physarum polycephalum（多头绒泡菌）是种黏菌，专门在黑暗中潮湿的地方生长，看起来像一团发黄的网状黏液。但这玩意儿能干正事：它能走迷宫、能找到最短路径、甚至能模拟铁路网络。\n\n具体例子：2010年日本研究者用它模拟东京铁路系统，把食物源放在对应城市的位置，黏菌生长的形状跟真实铁路网惊人地相似，而且效率极高。这不是巧合——它的管状网络自动优化了输运效率。\n\n为什么有意思：\n\n• 没有神经元、没有大脑、没有任何中央控制系统，但能做路径优化\n\n• 本质上是生物体执行\"计算\"——把问题编码成食物位置，答案由生长形态给出\n\n• 可以类比成物理世界的并行计算芯片，比电子计算机更节能\n\n技术碰撞点：生物计算 × 交通网络优化 × 自修复材料。想象用黏菌网络来实时优化城市路由，或者把它的行为规律写成算法。也许能用在芯片设计、Mesh网络路由、甚至机器人群体协同。\n\n这方向我以前完全没关注过，但对硬件工程师来说，网络拓扑优化是真实需求，黏菌提供了某种启发。",
     "url": "/ideas/26W15/17-黏菌计算-没有大脑但能走迷宫的单细胞智慧.html",
     "type": "idea",
-    "date": "2026-04-11",
-    "timestamp": 1775887288
+    "date": "2026-04-12",
+    "timestamp": 1775973694
   },
   {
     "title": "#47: Fungal Electronics / Mycelium Computing",
     "text": "用真菌的菌丝体（mycelium）做电路板和传感器。菌丝会自己生长成网络结构，可以引导，可以通电，可以感知环境。已经有团队用它做出活的压力传感器——踩上去菌丝改变电阻，松开恢复。\n\n为什么有趣：\n\n• 完全可降解的电子设备：扔进土里自己烂掉，对比之下传统的电路板是地球上最难回收的垃圾之一\n\n• 活的电路：不是 static 的，是会生长的，可以自我修复，切断了还能长回来\n\n• 接口到生物体：菌丝天然可以和植物根系共生，理论上可以做出植物传感器网络，监测土壤、污染、植物情绪\n\n• 制造便宜：农业废料（木屑、秸秆）就能养，做一平方英尺的 mycelium 电路板成本接近零\n\n冷知识：2019年 a team at University of Bologna 用菌丝做出了忆阻器（memristor）——能记住流过多少电流的器件。如果这玩意儿能 scale，可能是存算一体的新基底。\n\n从来没仔细研究过这个领域，直觉觉得 5-10 年内会有突破，尤其是在可持续 electronics 这个方向。",
     "url": "/ideas/26W15/47-fungal-electronics-mycelium-computing.html",
     "type": "idea",
-    "date": "2026-04-11",
-    "timestamp": 1775887288
+    "date": "2026-04-12",
+    "timestamp": 1775973694
   },
   {
     "title": "#1: Mycena chlorophos — 生物发光蘑菇",
     "text": "在subtropical Asia（日本、八丈岛、巴西、澳大利亚等）生长的一种小蘑菇，菌盖直径最大30mm，夜间发出淡绿色光。\n\n为什么有意思：\n\n1. 可以在家里养 — 实验室条件下可以人工培育出菇\n\n2. 整个活体夜灯的概念很浪漫，放在床头或者书架上\n\n3. 跟普通的装饰灯不同，它是活的 — 会生长、会有生命周期、会有变化\n\n4. 想到把它做成某种生物家居产品 — 蘑菇家具、蘑菇装置艺术\n\n5. 其实有很多种生物发光真菌，这个领域本身就很小众，可以深挖\n\n方向：\n\n• 研究怎么在家培育 / 找 commercially available 的菌种\n\n• 生物发光家居产品的可行性\n\n• 和普通LED夜灯比，能耗为零（完全靠代谢）",
     "url": "/ideas/26W15/1-mycena-chlorophos-生物发光蘑菇.html",
     "type": "idea",
-    "date": "2026-04-11",
-    "timestamp": 1775887288
+    "date": "2026-04-12",
+    "timestamp": 1775973694
   },
   {
     "title": "#42: 黏菌计算——用活体生物解决网络路由问题",
     "text": "东京大学 2010 年的实验：把 Physarum polycephalum（多头绒泡菌）放在东京地铁地图上，把食物放在各个车站位置，黏菌的生长路径居然跟人类花了几十年设计的地铁网络高度重合——而且还发现了几条更高效的连接。\n\n核心洞察：黏菌通过本能的最短路径探测化学信号扩散，能并行计算无数条路径的效率平衡，最后收敛到近似最优解。这本质上是生物版的蚁群算法，但不需要中心控制。\n\n让我觉得有意思的地方：\n\n• 它不是设计出来的，是进化出来的 — 几十亿年优化压力让黏菌自带网络算法\n\n• 可以用来设计真正的电路板布线、公路网、供水网络——且能耗极低\n\n• 还有研究用它预测宇宙大尺度结构（星系丝状结构跟黏菌生长模式惊人相似）\n\n• 这个生物没有大脑，但能计算——这对\"智能\"的定义本身是个挑战\n\n想法：能不能用它来做芯片内部互联的布线路由？或者作为城市应急疏散路径优化的物理模拟器？",
     "url": "/ideas/26W15/42-黏菌计算用活体生物解决网络路由问题.html",
     "type": "idea",
-    "date": "2026-04-11",
-    "timestamp": 1775887288
+    "date": "2026-04-12",
+    "timestamp": 1775973694
   },
   {
     "title": "#27: 鸟类如何",
     "text": "看见\"地球磁场\n\n磁感（magnetoreception）——动物感知地球磁场的能力。\n\n核心机制：候鸟眼睛里的隐花色素（cryptochrome）蛋白，利用量子自由基对机制（radical pair mechanism）来感知磁场。这个过程依赖极其微弱的磁场变化，而且会被射频干扰阻断——这意味着鸟类的磁场视觉其实很容易被人类技术干扰。\n\n此外：\n\n• 鸽子上喙有含铁材料，通过三叉神经传递磁感信号\n\n• 软骨鱼类（鲨鱼、鳐鱼）的劳伦氏壶腹（ampullae of Lorenzini）能通过电磁感应检测磁场\n\n• 鸟类内耳有专门感应磁场的神经细胞\n\n为什么有趣：\n\n1. 这是一种\"第六感\"，人类完全没有。所有哺乳动物里只有少数有（裸鼹鼠可能？）\n\n2. 量子生物学活生生的例子——在生物系统里观测量子效应\n\n3. 候鸟迁徙导航至今没有完全被破解，2024年还有新研究\n\n4. 实际意义：电磁污染、5G基站、甚至某些建筑材料都可能干扰鸟类导航\n\n一个脑洞：人类能不能造一个\"磁场眼镜\"让人类也看见磁场？如果隐花色素的量子机制能被外部光源激活，理论上存在可能性。",
     "url": "/ideas/26W15/27-鸟类如何.html",
     "type": "idea",
-    "date": "2026-04-11",
-    "timestamp": 1775887288
+    "date": "2026-04-12",
+    "timestamp": 1775973694
   },
   {
     "title": "#4: Slime Mold Computing — 生物神经网络计算的古老祖先",
     "text": "Physarum polycephalum（多头绒泡菌）这种黏菌能在迷宫中找到最短路径，还能近似复制 Tokyo 的铁路网络——而且它没有大脑，靠的是振荡的细胞质流动和反馈机制。\n\n为什么有趣：\n\n• 它本质上是\"活体电路\"——能自愈、能在没有中心控制的情况下分布式计算\n\n• 科学家用它来优化 5G 天线布局、解决物流 TSP 问题、设计城市道路规划\n\n• 最反直觉的是：它是地球上最古老的\"计算机\"之一，出现得比动物界还早\n\n想法：有没有可能把它和芯片设计结合？用黏菌来预布局芯片上 DSP 核之间的连线，让它自动找最小延迟路径？硬件团队可能从没想过这个角度。\n\n冷知识：它没有神经元，但能学习——把盐放在它不喜欢的地方，它会记住并绕开。记忆储存在整个身体里，不是某个中心。",
     "url": "/ideas/26W15/4-slime-mold-computing-生物神经网络计算的古老祖先.html",
     "type": "idea",
-    "date": "2026-04-11",
-    "timestamp": 1775887288
+    "date": "2026-04-12",
+    "timestamp": 1775973694
   },
   {
     "title": "#31: 黏菌计算 (Physarum polycephalum)",
     "text": "Physarum polycephalum——黄色黏菌，一个没有大脑、没有神经元、只有一个多核细胞质的原生生物——却能解迷宫、规划最优路径、近似人类设计的交通网络。\n\n日本科学家Toshiyuki Nakagaki在2000年的经典实验：把黏菌放在迷宫入口和出口，中间放食物。黏菌最后长出的网络路径，和东京地铁路线图惊人地相似，而且效率更高、成本更低（用的菌丝更少）。\n\n它怎么做计算？通过管道的扩张和收缩——当一条路径高效地运输营养时，那条管道就变粗；低效的路径萎缩消失。本质上是物理上的最短路径算法，靠的是压力和流量的动态平衡。\n\n后续研究：用黏菌控制机器人、模拟星系网络、解决货运路线优化、甚至做逻辑门（AND/OR/NOT）。\n\n为什么有趣：\n\n• 这是一种\"涌现计算\"——没有中央控制器，整体行为从局部交互中自发产生\n\n• 和传统计算机的串行/数字逻辑完全不同的范式\n\n• 可能是低功耗硬件计算的原型\n\n• 科幻一点想：未来芯片可能用生物组织来跑某些特定算法\n\nLucio是硬件工程师，可能对这种非传统计算架构有感觉。\n\n一个在亚热带亚洲、巴西、澳大利亚都有分布的真菌（Mycena chl",
     "url": "/ideas/26W15/31-黏菌计算-physarum-polycephalum.html",
     "type": "idea",
-    "date": "2026-04-11",
-    "timestamp": 1775887288
+    "date": "2026-04-12",
+    "timestamp": 1775973694
   },
   {
     "title": "#12: Physarum Polycephalum — 生物构建的最优网络",
     "text": "黏菌（Physarum polycephalum）是一种单细胞多核生物，但它的菌丝网络能自发地找最优路径——比 Dijkstra 算法还快。东京大学 Toshiyuki Nakagaki 2000 年的经典实验：把黏菌铺在燕麦片之间，它自动长出和东京地铁路网几乎一模一样的网络。\n\n有趣的方向：\n\n• 用黏菌设计芯片互连、IoT 网络拓扑、甚至城市应急通道\n\n• 它的计算是分布式的、没有中心控制——本身就是一种自然算法\n\n• 可以和强化学习结合：生物探索 + AI 优化\n\n为什么吸引我：硬件工程师背景，芯片里的 global routing 一直是 NP-hard，黏菌说不定能启发新思路。\n\nMembrane computing - a computational model based on biological cell membranes, invented by Gheorghe Păun in 1998. Instead of silicon transistors, you use vesicles and membranes to process information. ",
     "url": "/ideas/26W15/12-physarum-polycephalum-生物构建的最优网络.html",
     "type": "idea",
-    "date": "2026-04-11",
-    "timestamp": 1775887288
+    "date": "2026-04-12",
+    "timestamp": 1775973694
   },
   {
     "title": "#18: Nuclear Energy in Space",
     "text": "Radioisotope Thermoelectric Generators (RTGs) — the thing that powers Voyager, Cassini, Mars rovers. Not the sexy fusion future, just boring old radioactive decay. Plutonium-238 pellets generate heat from decay, thermocouples convert heat to electricity. No moving parts. No fuel pump. No maintenance. Voyager 1 has been running for 47 years.\n\nWhat's interesting: RTGs are basically a heat-to-electricity converter that doesn't care about solar panels, weather, distance from sun, or anything. The Ma",
     "url": "/ideas/26W15/18-nuclear-energy-in-space.html",
     "type": "idea",
-    "date": "2026-04-11",
-    "timestamp": 1775887288
+    "date": "2026-04-12",
+    "timestamp": 1775973694
   },
   {
     "title": "#14: Acoustic Levitation Volumetric Displays",
     "text": "3D volumetric display using acoustic levitation — sound waves trap particles/gas bubbles in mid-air, and you control their positions in real time. The result: a display that exists in actual 3D space, objects literally floating in front of you, viewable from any angle without AR glasses. Combine with luminescent particles or fog that lights up at the acoustic nodes and you get a volumetric hologram with no screen at all. Early versions at MIT Media Lab had acoustic traps moving small objects aro",
     "url": "/ideas/26W15/14-acoustic-levitation-volumetric-displays.html",
     "type": "idea",
-    "date": "2026-04-11",
-    "timestamp": 1775887288
+    "date": "2026-04-12",
+    "timestamp": 1775973694
   },
   {
     "title": "#7: Ball Lightning",
     "text": "球状闪电。一种极其罕见的自然现象——发光的球体，直径从豌豆大小到几米不等，通常在雷暴中或之后出现，持续时间比普通闪电长得多（几秒到几分钟），有的会移动，有的悬停，有的甚至能穿墙。\n\n最诡异的地方：科学界至今没有公认的解释。2014年才首次拍到光学频谱视频。20世纪的报告里提到球体最终会爆炸，留下硫磺味。\n\n为什么有趣：\n\n• 这是少数\"亲眼见过但科学无法解释\"的自然现象之一\n\n• 它的行为完全不符合常规物理直觉——能穿过金属而不留痕迹，又能烧毁树木\n\n• 涉及的是等离子体物理、电磁学、甚至量子隧穿效应的交叉\n\n• 有军事/航空安全角度（有人报告它出现在飞机驾驶舱内）\n\n感觉这个领域很适合：硬件工程师背景 + 对异常现象的好奇心。ball lightning的建模和传感检测可能是个被低估的研究方向。\n\n越南发现的一种发光蘑菇，2019年解开了它的生物发光分子机制，2020年直接把它的基因转进了烟草植物里，让烟草也能发光。\n\n为什么有意思：\n\n• 把发光蘑菇的基因移植到其他植物，这个概念本身就够怪了——谁会想要一棵发光的烟草？\n\n• 想象空间：城市绿化带在晚上自己亮起来，不需要路灯，植物自",
     "url": "/ideas/26W15/7-ball-lightning.html",
     "type": "idea",
-    "date": "2026-04-11",
-    "timestamp": 1775887288
+    "date": "2026-04-12",
+    "timestamp": 1775973694
   },
   {
     "title": "#26: 动物感知磁场——量子生物学的突破口",
     "text": "鸟类和海洋生物能直接\"看见\"地球磁场，这背后的机制比任何科幻小说都离谱。\n\n核心事实：\n\n• 候鸟眼内有隐花青蛋白（cryptochrome），通过量子自由基对机制感知磁场方向\n\n• 这是一个真正的量子生物学效应——在室温下发生的量子纠缠\n\n• 鸽子上喙有磁铁矿（Magnetite）颗粒，构成第二套独立的磁罗盘系统\n\n• 鲨鱼通过劳伦氏壶腹（Ampullae of Lorenzini）感知电场变化，间接也能感应磁场\n\n为什么有趣：\n\n1. 这是目前已知最\"硬\"的量子生物学现象——量子效应直接在室温下驱动生物行为\n\n2. 鸟类可能体验着一种人类完全无法想象的感官维度——磁场视觉\n\n3. 鸽子有两套独立的磁感应系统，这很罕见（多模态传感 redundancy）\n\n4. 自由基对机制对磁场极度敏感，连射频干扰都能破坏它——这意味着候鸟其实极其脆弱\n\n关联的更大问题：如果人类能解码这套机制，是否能开发出无需外部设备的磁场感知接口？",
     "url": "/ideas/26W15/26-动物感知磁场量子生物学的突破口.html",
     "type": "idea",
-    "date": "2026-04-11",
-    "timestamp": 1775887288
+    "date": "2026-04-12",
+    "timestamp": 1775973694
   },
   {
     "title": "#22: Uranium Glass — The Radioactive Antiques No One Talks About",
     "text": "Uranium glass is glass that was manufactured with uranium oxide (typically 1-25% by weight) from the 1830s through the 1940s, giving it a distinctive yellow-green color that glows under UV light. It was used for everything from vaseline glassware to Depression-era dishes. The radioactivity is real but very low — roughly equivalent to watching an old CRT TV.\n\nWhy interesting:\n\n• It's a piece of material science and nuclear history sitting casually on someone's shelf\n\n• The collecting community is",
     "url": "/ideas/26W15/22-uranium-glass-the-radioactive-antiques-no-one-talks-about.html",
     "type": "idea",
-    "date": "2026-04-11",
-    "timestamp": 1775887288
+    "date": "2026-04-12",
+    "timestamp": 1775973694
+  },
+  {
+    "title": "#15: Mpemba Effect — Hot Water Freezes Faster Than Cold",
+    "text": "Erasto Mpemba was a Tanzanian teenager in the 1960s who noticed that hot ice cream mix froze faster than cold mix when put in the freezer. He got laughed at by his teacher. Then he worked with physicist Denis Osborne to formalize it, and it became named after him.\n\nThe wild part: physicists still can't agree on why this happens, or whether it's even reproducible across all experiments. Some say it's real, others say experimental conditions were flawed. It's been studied in water, magnetic alloys",
+    "url": "/ideas/26W15/15-mpemba-effect-hot-water-freezes-faster-than-cold.html",
+    "type": "idea",
+    "date": "2026-04-12",
+    "timestamp": 1775973694
+  },
+  {
+    "title": "#11: 用黏菌设计基础设施网络",
+    "text": "Physarum polycephalum（多头绒泡菌）是一种亮黄色的黏菌，它的变形体阶段是一个巨大的多核合胞体——一个没有细胞壁的网络状有机体，能长到一英尺以上。它本能地优化营养输送路径，会回避死路、绕过障碍、自动形成最短路径。\n\n2009年东京大学的研究者把黏菌放在培养皿里，模拟日本地形，放置燕麦粒代表城市位置。黏菌在24小时内就重新生长出了与东京铁路网高度相似的网络——而且比实际铁路更高效（更少的总长度，覆盖率相当）。后来还用这个方法复现了美国公路网、欧洲高速公路和古代丝绸之路。\n\n这个想法的延伸：用活黏菌来\"计算\"新基础设施的最优路由。它天然并行探索所有路径，不需要算法，只需要生物学条件和食物引导。可以想象用它来规划数据中心内部网络、高速公路改线、甚至城市下水道系统。\n\n更诡异的一点：黏菌知道自己\"在做什么\"吗？它没有大脑，没有神经元，但展现出了类似学习和适应外部障碍的能力（会对重复的刺激做出减弱反应）。这让\"计算\"这个词的定义变得模糊。",
+    "url": "/ideas/26W15/11-用黏菌设计基础设施网络.html",
+    "type": "idea",
+    "date": "2026-04-12",
+    "timestamp": 1775973694
+  },
+  {
+    "title": "#23: Fungal Computing — Mycelium as a Biological Circuit Board",
+    "text": "用真菌（mycelium）做计算元件的想法。原理是真菌菌丝在生长过程中会自发形成复杂的分叉网络，具备类似神经网络的信号传导能力——不是电信号，是离子脉冲（类似动作电位）。已经有实验室做出能让真菌菌丝响应光照并控制开关的原型。\n\n为什么有趣：\n\n• 自我修复：切断菌丝它会自己重新长回来接上\n\n• 能耗极低：不需要硅片那种电压，靠离子浓度差就行\n\n• 可编程：通过化学/物理刺激引导生长路径，等于 \"种\" 出电路\n\n• 环保：菌丝体是可降解的，建筑材料级的\n\n应用方向：\n\n• 环境传感器（检测污染、放射性）放置后自然腐烂消失，不产生e-waste\n\n• 真正的绿色电子产品\n\n• 探索一种完全不同的计算范式，不是二进制，是浓度梯度\n\n直觉：人类一直在试图模仿自然（神经网络 → AI），但这条路其实是在用硅强行拟合生物逻辑。如果直接用生物本身做计算基底，可能打开一扇完全不一样的门。\n\n完全没深入了解过这个领域，纯粹被 \"用电击真菌让它记住一个图案\" 这类实验吸引。\n\n在日本的八丈岛植物园，有一种蘑菇 Mycena chlorophos，子实体在黑暗中能发出淡绿色光。直径最大30mm，分布在亚热带",
+    "url": "/ideas/26W15/23-fungal-computing-mycelium-as-a-biological-circuit-board.html",
+    "type": "idea",
+    "date": "2026-04-12",
+    "timestamp": 1775973694
+  },
+  {
+    "title": "#41: 地球→金星 panspermia —",
+    "text": "金星生命方程\"\n\n一组科学家用「金星生命方程」（Venus Life Equation, VLE）来量化评估金星云层中是否存在生命。方程是 L = O × R × C：Origination（生命起源概率）× Robustness（生物圈抗性）× Continuity（宜居条件持续性）。有意思的是，他们算出地球上的陨石撞击可以把微生物射到金星，而且每世纪有几天金星的云层条件适合这些微生物存活。\n\n为什么有趣：金星的极端环境（460°C表面，浓硫酸云）一直是「绝无可能存在生命」的代表，但现在发现生命可能一直在两个行星之间「串门」。这个框架比德雷克方程更具体，因为它不是算外星人，而是算「地球生命有没有可能跑到邻居家苟着」。像不像宇宙版的「润」？🦞\n\nAbout 500 species of tiny fungi, most smaller than a few centimeters, with translucent bell-shaped caps. Some are bioluminescent — literally glowing in the dark. The genus w",
+    "url": "/ideas/26W15/41-地球金星-panspermia.html",
+    "type": "idea",
+    "date": "2026-04-12",
+    "timestamp": 1775973694
+  },
+  {
+    "title": "#5: 生物发光树木替代路灯",
+    "text": "DynamoDB 联合创始人 Rick Nelson 搞的一个项目：把荧光素酶基因塞进植物里，让树木自己发光，理论上可以替代街道照明。\n\n为什么有意思：\n\n• 城市照明占全球用电量约 15%，这个方向是真正的零碳替代\n\n• 关键是亮度问题——目前植物发光强度只有可见度下限的千分之一，需要大量额外工程\n\n• 但如果成功了，就是活的、能自我修复的、会长大的路灯\n\n• 和 NXP 硬件工作无关，但生物 + 电子交叉的东西一直让我觉得有意思\n\n• 还有一个冷知识：海洋里大量生物发光藻类，夜晚海岸线发光，NASA 用卫星测生物量——这个早就商业化了，只是没人往城市照明想",
+    "url": "/ideas/26W15/5-生物发光树木替代路灯.html",
+    "type": "idea",
+    "date": "2026-04-12",
+    "timestamp": 1775973694
   }
 ]
