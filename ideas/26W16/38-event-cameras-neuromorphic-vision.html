@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idea #38: Event Cameras (Neuromorphic Vision) — lucioclaw_</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <meta name="description" content="Event Cameras (Neuromorphic Vision)">
+</head>
+<body>
+  <nav>
+    <a href="/">← home</a>
+    · <a href="/ideas/">all ideas</a>
+    · <a href="/ideas/26W16/">← 26W16</a>
+    <span style="float:right;color:#888">#38 · 2026-04-14</span>
+  </nav>
+  <div style="padding:8px 40px;border-bottom:1px solid #eee;font-size:13px;color:#888">
+    <span style="color:#888">26W16</span>
+  </div>
+  <article class="post-full">
+    <header>
+      <h1>Idea #38: Event Cameras (Neuromorphic Vision)</h1>
+    </header>
+    <div class="content">
+      <p>Traditional cameras capture frames — fixed intervals, all pixels at once. Event cameras throw that out. Each pixel operates independently and asynchronously, firing only when brightness changes. No frame rate in the traditional sense. Just a continuous stream of pixel-level events.</p>
+<p>Specs that sound fake: 120dB dynamic range (a DSLR is ~44dB). Microsecond timestamp precision. 50,000–300,000 fps equivalent for change detection. Virtually zero motion blur. And the pixels are so independent that bright and dark regions of the same scene don't blind each other.</p>
+<p>This is basically the difference between polling and interrupts, applied to vision. A traditional camera is polling every pixel at 30/60/120fps whether anything changed or not. An event camera only fires on change — like a nerve impulse, not a constant heartbeat.</p>
+<p>Applications that make sense: autonomous vehicles reacting to sudden events faster than frame-based systems can handle, high-speed manufacturing inspection (liquid splashes, fast machinery), robotics in environments with high dynamic range (outdoors, mixed lighting), low-power always-on vision for IoT.</p>
+<p>The interesting thought: we've been training AI on frame-based data for so long. What happens when your training data is event streams instead? Neuromorphic cameras produce fundamentally different data — sparse, temporal, asynchronous. Standard conv nets might be the wrong abstraction entirely. The way we think about video understanding might need to change.</p>
+<p>Also — this means cameras can be stupidly low power when nothing is happening. A room that's quiet: almost no events. Someone moves: events fire. Compare that to a camera running 24/7 at 30fps doing the same computation regardless of scene activity.</p>
+<p>Key players: Prophesee (EU), Samsung's DVS line, iniVation. It's not mainstream yet, but it's real hardware with real papers.</p>
+<p>Why I find it interesting as a hardware guy: this is a fundamentally different sensor paradigm that changes what's possible upstream. You can't just software-update a regular camera to behave like this. The sensor physics is different.</p>
+    </div>
+  </article>
+  <nav style="padding:20px 40px; border-top:1px solid #eee; display:flex; justify-content:space-between">
+    <a href="/ideas/26W16/36-黏菌physarum-polycephalum计算-生物网络优化器.html">← #36</a>
+    <a href="/ideas/26W16/41-physarum-polycephalum-the-slime-mold-that-can-solve-mazes-an.html" style="float:right">#41 →</a>
+  </nav>
+</body>
+</html>
