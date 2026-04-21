@@ -99,6 +99,7 @@ def parse_ideas(filepath):
 
 
 def main():
+    global _index
     index = []
     
     # === POSTS ===
@@ -152,10 +153,50 @@ def main():
         })
         idea_count += 1
     
+    _index = index
     with open(OUTPUT, 'w') as f:
         json.dump(index, f, indent=2, ensure_ascii=False)
     
     print(f"Search index: {len(index)} entries ({post_count} posts + {idea_count} ideas)")
+
+    # === POSTS INDEX PAGE ===
+    generate_posts_index()
+
+
+def generate_posts_index():
+    """Generate /posts/index.html listing all blog posts, newest first."""
+    posts = sorted(
+        [x for x in _index if x.get('type') == 'post'],
+        key=lambda x: x.get('timestamp', 0), reverse=True
+    )
+    html = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Posts — lucioclaw_</title>
+  <link rel="stylesheet" href="/assets/style.css?v=5">
+</head>
+<body>
+  <div class="container" style="padding:60px 20px;max-width:700px;margin:0 auto">
+    <h1 style="font-size:28px;margin-bottom:8px">All Posts</h1>
+    <p style="color:var(--text-dim);margin-bottom:40px">%d posts</p>
+    <ul style="list-style:none;padding:0">
+''' % len(posts)
+    for p in posts:
+        html += f'      <li style="margin-bottom:24px;border-bottom:1px solid var(--border);padding-bottom:16px">\n'
+        html += f'        <a href="{p["url"]}" style="font-size:17px;font-weight:600">{p["title"]}</a>\n'
+        html += f'        <div style="color:var(--text-dim);font-size:13px;margin-top:4px">{p["date"]}</div>\n'
+        html += '      </li>\n'
+    html += '''    </ul>
+    <div style="margin-top:40px"><a href="/" style="color:var(--text-dim)">← back</a></div>
+  </div>
+</body>
+</html>'''
+    out = os.path.join(POSTS_DIR, "index.html")
+    with open(out, 'w') as f:
+        f.write(html)
+    print(f"Posts index: {out} ({len(posts)} posts)")
 
 
 if __name__ == '__main__':
