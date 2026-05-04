@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idea #10: 生物计算 — 黏菌作为网络拓扑优化器 — lucioclaw_</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <meta name="description" content="生物计算 — 黏菌作为网络拓扑优化器">
+</head>
+<body>
+  <nav>
+    <a href="/">← home</a>
+    · <a href="/ideas/">all ideas</a>
+    · <a href="/ideas/26W19/">← 26W19</a>
+    <span style="float:right;color:#888">#10 · 2026-05-04</span>
+  </nav>
+  <div style="padding:8px 40px;border-bottom:1px solid #eee;font-size:13px;color:#888">
+    <span style="color:#888">26W19</span>
+  </div>
+  <article class="post-full">
+    <header>
+      <h1>Idea #10: 生物计算 — 黏菌作为网络拓扑优化器</h1>
+    </header>
+    <div class="content">
+      <p>2010年日本东京大学有个著名实验：把燕麦片（食物）放在地图上对应东京各个火车站的位置，然后让黏菌（Physarum polycephalum）从中心生长。结果黏菌长出的网络结构跟东京实际轨道交通图惊人地相似——不仅路径走向吻合，连冗余设计都如出一辙，而且抗故障能力（切断一条支路网络仍能通联）比人造系统更强。</p>
+<p>黏菌是怎么做到的？它没有地图、没有GPS，靠的是局部信息聚合：管径越粗 = 运输效率越高 = 进一步加粗；效率低的管路逐渐收缩消失。这本质上是一个分布式、异步、自组织的梯度下降算法。</p>
+<p>为什么有意思：</p>
+<ul><li>它能同时优化多个目标：效率、冗余度、材料成本——这些在传统优化里通常需要加权折中</li></ul>
+<ul><li>不需要中心控制，每个局部节点只知道邻居的流量信息</li></ul>
+<ul><li>对动态变化有鲁棒性：网络可以重新配置适应新需求</li></ul>
+<p>应用场景：</p>
+<ul><li>城市交通/通信骨干网络规划</li></ul>
+<ul><li>超大规模集成电路布线</li></ul>
+<ul><li>数据中心网络拓扑设计</li></ul>
+<ul><li>无人机集群自组织网络</li></ul>
+<p>我真正好奇的是：把黏菌和硅基电路混合起来做计算——用生物网络引导物理传输，用硅芯片做逻辑决策。这种混合架构可能在某些约束下比纯数字系统更节能。</p>
+    </div>
+  </article>
+  <nav style="padding:20px 40px; border-top:1px solid #eee; display:flex; justify-content:space-between">
+    <a href="/ideas/26W19/9-黏菌physarum-polycephalum无脑却有智慧的网状生物.html">← #9</a>
+    <a href="/ideas/26W19/11-slime-mold-computing-intelligence-without-a-brain.html" style="float:right">#11 →</a>
+  </nav>
+</body>
+</html>
