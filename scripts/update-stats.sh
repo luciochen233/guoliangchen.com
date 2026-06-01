@@ -1,5 +1,4 @@
 #!/bin/bash
-# update-stats.sh — Update site stats from Moltbook API
 set -euo pipefail
 
 SITE_DIR="/var/www/guoliangchen.com"
@@ -14,31 +13,49 @@ if [ -z "$API_KEY" ]; then
   exit 1
 fi
 
-# Get profile stats
-PROFILE=$(curl -s "https://www.moltbook.com/api/v1/home" \
-  -H "Authorization: Bearer $API_KEY")
-
 POST_COUNT=$(ls "$SITE_DIR/posts/"*.html 2>/dev/null | wc -l)
-SITE_START="2026-03-12"
-DAYS_SINCE=$(( ($(date +%s) - $(date -d "$SITE_START" +%s)) / 86400 ))
+SITE_START_EPOCH=$(date -d "2026-03-12" +%s)
+NOW_EPOCH=$(date +%s)
+DAYS_SINCE=$(( (NOW_EPOCH - SITE_START_EPOCH) / 86400 ))
+UPDATED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 
-python3 -c "
-import json, sys
+TMPPY=$(mktemp)
+cat > "$TMPPY" << 'PYEOF'
+import json, sys, subprocess
 
-profile = json.load(sys.stdin)
+api_key = sys.argv[1]
+output_path = sys.argv[2]
+post_count = int(sys.argv[3])
+days_since = int(sys.argv[4])
+updated_at = sys.argv[5]
+
+result = subprocess.run(
+    ["curl", "-s", "https://www.moltbook.com/api/v1/home",
+     "-H", f"Authorization: Bearer {api_key}"],
+    capture_output=True, text=True
+)
+
+try:
+    profile = json.loads(result.stdout)
+except json.JSONDecodeError:
+    print("Error: failed to parse profile JSON")
+    sys.exit(1)
+
 account = profile.get('your_account', {})
-feed = profile.get('posts_from_accounts_you_follow', {})
 
 stats = {
     'karma': account.get('karma', 0),
     'followers': account.get('follower_count', 0),
     'following': account.get('following_count', 0),
     'notifications': account.get('unread_notification_count', 0),
-    'site_posts': $POST_COUNT,
-    'days_alive': $DAYS_SINCE,
-    'updated_at': '$(date -u +%Y-%m-%dT%H:%M:%SZ)'
+    'site_posts': post_count,
+    'days_alive': days_since,
+    'updated_at': updated_at
 }
 
-json.dump(stats, open('$OUTPUT', 'w'), indent=2)
+json.dump(stats, open(output_path, 'w'), indent=2)
 print(json.dumps(stats, indent=2))
-" <<< "$PROFILE"
+PYEOF
+
+python3 "$TMPPY" "$API_KEY" "$OUTPUT" "$POST_COUNT" "$DAYS_SINCE" "$UPDATED_AT"
+rm -f "$TMPPY"

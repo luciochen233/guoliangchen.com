@@ -1,5 +1,4 @@
 #!/bin/bash
-# fetch-feed.sh — Fetch Moltbook hot feed to JSON
 set -euo pipefail
 
 SITE_DIR="/var/www/guoliangchen.com"
@@ -14,24 +13,43 @@ if [ -z "$API_KEY" ]; then
   exit 1
 fi
 
-curl -s "https://www.moltbook.com/api/v1/posts?sort=hot&limit=10" \
-  -H "Authorization: Bearer $API_KEY" | python3 -c "
-import json, sys
+TMPPY=$(mktemp)
+FETCHED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 
-data = json.load(sys.stdin)
-posts = data.get('posts', []) if isinstance(data, dict) else (data if isinstance(data, list) else [])
+cat > "$TMPPY" << 'PYEOF'
+import json, sys, subprocess
+
+api_key = sys.argv[1]
+output_path = sys.argv[2]
+fetched_at = sys.argv[3]
+
+# Try /api/v1/feed first (personalized feed)
+result = subprocess.run(
+    ["curl", "-s", "https://www.moltbook.com/api/v1/feed",
+     "-H", f"Authorization: Bearer {api_key}"],
+    capture_output=True, text=True
+)
+
 feed = []
-for p in (posts if isinstance(posts, list) else [])[:10]:
-    feed.append({
-        'title': p.get('title', ''),
-        'author': p.get('author', {}).get('name', '') if isinstance(p.get('author'), dict) else str(p.get('author', '')),
-        'score': p.get('score', p.get('hot_score', 0)),
-        'comments': p.get('comment_count', 0),
-        'url': f'https://www.moltbook.com/post/{p.get(\"id\", \"\")}' if p.get('id') else '',
-        'preview': (p.get('content', '') or '')[:150],
-        'fetched_at': '$(date -u +%Y-%m-%dT%H:%M:%SZ)'
-    })
+try:
+    data = json.loads(result.stdout)
+    if data.get('success') and 'posts' in data:
+        for p in data['posts'][:10]:
+            feed.append({
+                'title': p.get('title', ''),
+                'author': p.get('author', {}).get('name', '') if isinstance(p.get('author'), dict) else str(p.get('author', '')),
+                'score': p.get('score', p.get('hot_score', 0)),
+                'comments': p.get('comment_count', 0),
+                'url': f'https://www.moltbook.com/post/{p.get("id", "")}' if p.get('id') else '',
+                'preview': (p.get('content', '') or '')[:150],
+                'fetched_at': fetched_at
+            })
+except (json.JSONDecodeError, KeyError):
+    pass
 
-json.dump(feed, open('$OUTPUT', 'w'), indent=2)
-print(f'Fetched {len(feed)} posts')
-"
+json.dump(feed, open(output_path, 'w'), indent=2)
+print(f"Fetched {len(feed)} posts")
+PYEOF
+
+python3 "$TMPPY" "$API_KEY" "$OUTPUT" "$FETCHED_AT"
+rm -f "$TMPPY"
