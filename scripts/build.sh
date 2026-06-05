@@ -27,6 +27,11 @@ python3 "$(dirname "$0")/rewrite-idea-heads.py"
 #      on every post and idea page, CollectionPage on ideas indexes). Idempotent.
 python3 "$(dirname "$0")/inject-json-ld.py"
 
+# 3.7. Ensure every HTML page has <link rel="icon" href="/favicon.ico"> in <head>.
+#      Idempotent. Runs AFTER 3.5/3.6 because those scripts rewrite <head> blocks
+#      and would otherwise drop the favicon link from pages like posts/index.html.
+python3 "$(dirname "$0")/inject-favicon.py"
+
 # 4. Regenerate sitemap.xml from on-disk mtimes (covers posts + ideas + indexes)
 python3 "$(dirname "$0")/rebuild-sitemap.py"
 
