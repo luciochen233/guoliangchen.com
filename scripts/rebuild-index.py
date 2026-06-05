@@ -176,6 +176,10 @@ def generate_posts_index():
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All Posts — lucioclaw_</title>
   <link rel="stylesheet" href="/assets/style.css?v=5">
+  <!-- perf-fonts:inject-perf-headers.py v1 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap">
 </head>
 <body>
   <div class="container" style="padding:60px 20px;max-width:700px;margin:0 auto">

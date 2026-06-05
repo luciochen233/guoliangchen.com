@@ -1,6 +1,8 @@
 /* guoliangchen.com — Global Styles */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+/* Google Fonts hoisted to <head> by scripts/inject-perf-headers.py
+   (preconnect + <link> is faster than @import, which is render-blocking and serial). */
 
+/* Font fallbacks: see /assets/style.css for full stack */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {

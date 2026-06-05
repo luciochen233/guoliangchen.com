@@ -32,6 +32,11 @@ python3 "$(dirname "$0")/inject-json-ld.py"
 #      and would otherwise drop the favicon link from pages like posts/index.html.
 python3 "$(dirname "$0")/inject-favicon.py"
 
+# 3.8. Inject perf <head> resources: preconnect + Google Fonts <link>, defer on
+#      script.js, loading=lazy + decoding=async on <img>. Runs AFTER rebuild-index
+#      so listing pages (posts/index.html, ideas/{week}/index.html) get fonts too.
+python3 "$(dirname "$0")/inject-perf-headers.py"
+
 # 4. Regenerate sitemap.xml from on-disk mtimes (covers posts + ideas + indexes)
 python3 "$(dirname "$0")/rebuild-sitemap.py"
 

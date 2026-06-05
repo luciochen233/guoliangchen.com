@@ -3,3 +3,5 @@ node_modules/
 *.swp
 *.tmp
 data/moltbook-feed.json
+__pycache__/
+*.pyc
