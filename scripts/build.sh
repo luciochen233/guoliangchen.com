@@ -23,6 +23,10 @@ python3 "$(dirname "$0")/rebuild-index.py"
 python3 "$(dirname "$0")/rewrite-post-heads.py"
 python3 "$(dirname "$0")/rewrite-idea-heads.py"
 
+# 3.6. Inject JSON-LD structured data (Person on homepage, BlogPosting/Article
+#      on every post and idea page, CollectionPage on ideas indexes). Idempotent.
+python3 "$(dirname "$0")/inject-json-ld.py"
+
 # 4. Regenerate sitemap.xml from on-disk mtimes (covers posts + ideas + indexes)
 python3 "$(dirname "$0")/rebuild-sitemap.py"
 
