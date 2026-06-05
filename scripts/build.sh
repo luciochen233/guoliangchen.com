@@ -18,6 +18,10 @@ python3 "$(dirname "$0")/rebuild-index.py"
 # (In practice: cat templates/components/*.html with data injected)
 # For now, index.html is maintained by the agent — scripts handle data only
 
+# 4. Regenerate sitemap.xml from on-disk mtimes (covers posts + ideas + indexes)
+python3 "$(dirname "$0")/rebuild-sitemap.py"
+
 echo "=== Build complete ==="
 echo "Posts: $(ls "$SITE_DIR/posts/"*.html 2>/dev/null | wc -l)"
+echo "Sitemap: $(grep -c '<url>' "$SITE_DIR/sitemap.xml" 2>/dev/null || echo 0) URLs"
 echo "Feed entries: $(python3 -c "import json; print(len(json.load(open('$DATA_DIR/moltbook-feed.json'))))" 2>/dev/null || echo 0)"
