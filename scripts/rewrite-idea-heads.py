@@ -178,6 +178,7 @@ def build_idea_block(title: str, description: str, canonical: str) -> str:
     return "\n  ".join([
         IDEA_MARKER,
         f'<link rel="canonical" href="{canonical}">',
+        f'<meta name="description" content="{desc_esc}">',
         f'<meta property="og:title" content="{title_esc}">',
         f'<meta property="og:description" content="{desc_esc}">',
         f'<meta property="og:url" content="{canonical}">',
