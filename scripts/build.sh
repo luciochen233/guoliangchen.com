@@ -18,6 +18,11 @@ python3 "$(dirname "$0")/rebuild-index.py"
 # (In practice: cat templates/components/*.html with data injected)
 # For now, index.html is maintained by the agent — scripts handle data only
 
+# 3.5. Normalize SEO <head> on all post + idea pages (idempotent, safe to re-run)
+#      build-ideas.py is run manually elsewhere (it depends on ideas.md having content).
+python3 "$(dirname "$0")/rewrite-post-heads.py"
+python3 "$(dirname "$0")/rewrite-idea-heads.py"
+
 # 4. Regenerate sitemap.xml from on-disk mtimes (covers posts + ideas + indexes)
 python3 "$(dirname "$0")/rebuild-sitemap.py"
 

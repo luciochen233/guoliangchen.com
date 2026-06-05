@@ -13,6 +13,74 @@ IDEAS_DIR = os.path.join(SITE_DIR, "ideas")
 IDEAS_MD = "/home/lucio/.openclaw/workspace/ideas.md"
 ARCHIVE_DIR = "/home/lucio/.openclaw/workspace/memory/ideas-archive"
 SEARCH_INDEX = os.path.join(SITE_DIR, "search-index.json")
+SITE_URL = "https://guoliangchen.com"
+OG_IMAGE = f"{SITE_URL}/assets/clawy-self-portrait.png"
+IDEA_MARKER = "<!-- seo-idea:rewrite-idea-heads.py v1 -->"
+LISTING_MARKER = "<!-- seo-listing:rewrite-idea-heads.py v1 -->"
+
+
+def html_escape(s):
+    return (s.replace("&", "&amp;")
+             .replace("<", "&lt;")
+             .replace(">", "&gt;")
+             .replace('"', "&quot;"))
+
+
+def idea_meta_block(idea, description, canonical):
+    """Full canonical/og/twitter block for an individual idea page (og:type=article)."""
+    raw_title = f"Idea #{idea['num']}{idea['dup']}: {idea['title']}"
+    title_esc = html_escape(raw_title)
+    desc_esc = html_escape(description)
+    return "\n  ".join([
+        IDEA_MARKER,
+        f'<link rel="canonical" href="{canonical}">',
+        f'<meta property="og:title" content="{title_esc}">',
+        f'<meta property="og:description" content="{desc_esc}">',
+        f'<meta property="og:url" content="{canonical}">',
+        f'<meta property="og:type" content="article">',
+        f'<meta property="og:site_name" content="lucioclaw_">',
+        f'<meta property="og:locale" content="en_US">',
+        f'<meta property="og:image" content="{OG_IMAGE}">',
+        f'<meta name="twitter:card" content="summary">',
+        f'<meta name="twitter:title" content="{title_esc}">',
+        f'<meta name="twitter:description" content="{desc_esc}">',
+        f'<meta name="twitter:image" content="{OG_IMAGE}">',
+    ])
+
+
+def shorten_description(text, max_len=200):
+    """Trim text to <= max_len chars, cutting at last space and adding ellipsis.
+    Shared with rewrite-idea-heads.py — keep behavior in sync."""
+    if len(text) <= max_len:
+        return text
+    cut = text[: max_len - 1]
+    sp = cut.rfind(' ')
+    if sp > max_len * 0.6:
+        cut = cut[:sp]
+    return cut.rstrip(' ,;:.-—') + '…'
+
+
+def listing_meta_block(week, description, canonical):
+    """Full canonical/og/twitter block for a listing page (og:type=website)."""
+    raw_title = week if week else "Ideas"
+    title_esc = html_escape(raw_title)
+    desc_esc = html_escape(description)
+    return "\n  ".join([
+        LISTING_MARKER,
+        f'<link rel="canonical" href="{canonical}">',
+        f'<meta name="description" content="{desc_esc}">',
+        f'<meta property="og:title" content="{title_esc}">',
+        f'<meta property="og:description" content="{desc_esc}">',
+        f'<meta property="og:url" content="{canonical}">',
+        f'<meta property="og:type" content="website">',
+        f'<meta property="og:site_name" content="lucioclaw_">',
+        f'<meta property="og:locale" content="en_US">',
+        f'<meta property="og:image" content="{OG_IMAGE}">',
+        f'<meta name="twitter:card" content="summary">',
+        f'<meta name="twitter:title" content="{title_esc}">',
+        f'<meta name="twitter:description" content="{desc_esc}">',
+        f'<meta name="twitter:image" content="{OG_IMAGE}">',
+    ])
 
 os.makedirs(IDEAS_DIR, exist_ok=True)
 
@@ -161,7 +229,18 @@ def build_idea_html(idea, all_ideas):
         else:
             week_nav_items.append(f'<a href="/ideas/{wf}/">{wf}</a>')
     week_nav = ' · '.join(week_nav_items)
-    
+
+    # SEO meta block
+    url = idea_url(idea)
+    canonical = f"{SITE_URL}{url}"
+    # Description: first ~200 chars of body, stripped of markdown/HTML, skip Date: preamble.
+    body_text = re.sub(r'<[^>]+>', '', re.sub(r'\*\*', '', body))
+    body_text = re.sub(r'•\s*', '', body_text)
+    body_text = re.sub(r'\s+', ' ', body_text).strip()
+    body_text = re.sub(r'^Date:\s*\d{4}-\d{2}-\d{2}\s*', '', body_text).strip()
+    description = shorten_description(body_text, 200)
+    meta_block = idea_meta_block(idea, description, canonical)
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -169,7 +248,7 @@ def build_idea_html(idea, all_ideas):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Idea #{idea['num']}{idea['dup']}: {title} — lucioclaw_</title>
   <link rel="stylesheet" href="/assets/style.css">
-  <meta name="description" content="{title}">
+  {meta_block}
 </head>
 <body>
   <nav>
@@ -211,7 +290,15 @@ def build_week_index(week, ideas):
             <div class="idea-preview">{preview[:100]}…</div>
           </div>
         </li>""")
-    
+
+    # SEO meta block for the weekly listing (og:type=website)
+    week_desc = (
+        f"Ideas collected by lucioclaw_ in {week} — short notes on biology, physics, "
+        f"computing, materials, and weird cross-domain research directions."
+    )
+    week_canonical = f"{SITE_URL}/ideas/{week}/"
+    week_meta = listing_meta_block(f"Ideas {week}", week_desc, week_canonical)
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -219,6 +306,7 @@ def build_week_index(week, ideas):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ideas {week} — lucioclaw_</title>
   <link rel="stylesheet" href="/assets/style.css">
+  {week_meta}
   <style>
     .ideas-list {{ list-style:none; padding:0; margin:0; }}
     .ideas-list li {{ display:flex; gap:16px; padding:16px 0; border-bottom:1px solid #eee; }}
@@ -275,6 +363,7 @@ def build_main_index(ideas):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ideas — lucioclaw_</title>
   <link rel="stylesheet" href="/assets/style.css">
+  {listing_meta_block('Ideas', 'A continuously-updated idea log by lucioclaw_ — short, sharp notes on biology, physics, computing, materials, and weird cross-domain research directions. Grouped by ISO week.', f'{SITE_URL}/ideas/')}
   <style>
     .week-block {{ margin-bottom:40px }}
     .week-block h2 {{ font-size:20px; margin-bottom:12px }}
