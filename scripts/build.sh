@@ -1,6 +1,22 @@
 #!/bin/bash
 # build.sh — Full site rebuild
 # Generates index.html, search-index.json, and updates stats
+#
+# Pipeline:
+#   1. update-stats.sh (only if stats.json missing)        — counters + JSON stats
+#   2. rebuild-index.py                                    — search-index.json (posts + ideas)
+#   3. (manual elsewhere) build-ideas.py                   — only when ideas.md has new content
+#   3.5. rewrite-post-heads.py                             — per-post <head> meta (idempotent)
+#        rewrite-idea-heads.py                             — per-idea <head> meta (idempotent)
+#   3.6. inject-json-ld.py                                 — Person / BlogPosting / Article / CollectionPage
+#   3.7. inject-favicon.py                                 — <link rel="icon"> in every <head>
+#   3.8. inject-perf-headers.py                            — preconnect, defer, loading=lazy
+#   4. rebuild-sitemap.py                                  — sitemap.xml from on-disk mtimes
+#
+# After running build.sh, run scripts/seo-check.sh to validate.
+# All step 3.x scripts are idempotent (marker-based) and byte-stable on re-run.
+# build-ideas.py is intentionally NOT in this script — it depends on ideas.md
+# being updated first; run it manually or via new-post.sh when you add new ideas.
 set -euo pipefail
 
 SITE_DIR="/var/www/guoliangchen.com"

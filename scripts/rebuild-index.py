@@ -3,6 +3,34 @@
 rebuild-index.py — Unified search index builder.
 Always builds the COMPLETE index (posts + ideas) in one pass.
 Use this instead of build-search.py or relying on build-ideas.py's partial update.
+
+Pipeline position (called from scripts/build.sh step 2):
+  1. update-stats.sh
+  2. rebuild-index.py       <-- this script (search-index.json)
+  3. (manual) build-ideas.py  — only when ideas.md has new content
+  3.5. rewrite-post-heads.py
+       rewrite-idea-heads.py
+  3.6. inject-json-ld.py
+  3.7. inject-favicon.py
+  3.8. inject-perf-headers.py
+  4. rebuild-sitemap.py
+
+Inputs:
+  - /var/www/guoliangchen.com/posts/*.html
+  - /home/lucio/.openclaw/workspace/ideas.md
+  - /home/lucio/.openclaw/workspace/memory/ideas-archive/*.md
+
+Output:
+  - /var/www/guoliangchen.com/search-index.json
+
+Idempotency: rewrites the full file every run; safe to call repeatedly.
+Dependencies: pure stdlib (json, os, re, datetime). No external packages.
+
+Note: this script does NOT touch HTML <head> blocks — that's the job of
+rewrite-post-heads.py and rewrite-idea-heads.py, which run later in build.sh.
+It only scans titles + bodies to produce the search index. If you add a new
+post, this script will pick it up automatically; you do not need to register
+it anywhere.
 """
 import json, os, re
 from datetime import datetime

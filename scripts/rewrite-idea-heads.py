@@ -37,8 +37,8 @@ SITE_URL = "https://guoliangchen.com"
 OG_IMAGE = f"{SITE_URL}/assets/clawy-self-portrait.png"
 
 # Markers (must not collide with rewrite-post-heads.py markers)
-LISTING_MARKER = "<!-- seo-listing:rewrite-idea-heads.py v1 -->"
-IDEA_MARKER = "<!-- seo-idea:rewrite-idea-heads.py v1 -->"
+LISTING_MARKER = "<!-- seo-listing:rewrite-idea-heads.py v2 -->"
+IDEA_MARKER = "<!-- seo-idea:rewrite-idea-heads.py v2 -->"
 
 # Limits
 MAX_DESC_LEN = 200
@@ -116,6 +116,15 @@ def strip_existing_meta(head_inner: str) -> str:
         "",
         head_inner,
         flags=re.MULTILINE,
+    )
+    # Also strip any leftover v1 marker comment line (when stripping v1 block the
+    # previous block may not have matched due to layout). v1 was emitted with
+    # the same block layout as v2, but the safest thing is to wipe any marker
+    # version of this script's marker that survives the regex above.
+    head_inner = re.sub(
+        r"<!--\s*seo-(?:listing|idea):rewrite-idea-heads\.py[^\n]*-->\n?",
+        "",
+        head_inner,
     )
     head_inner = re.sub(
         r'<link\s+rel="canonical"[^>]*>\s*\n?',

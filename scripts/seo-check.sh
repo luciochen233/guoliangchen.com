@@ -94,8 +94,13 @@ else
 fi
 
 # ---------- 3. Title uniqueness ----------
+# Warning, not failure: same idea legitimately re-curated across multiple
+# weeks (e.g. an idea first appears in 26W18, gets re-featured in 26W19 and
+# 26W23) means the title pattern "Idea #N: ..." will repeat. This is content
+# design, not a script bug. The check still surfaces the duplicates so they're
+# visible, but it does not block the build.
 echo ""
-echo "[3] <title> uniqueness"
+echo "[3] <title> uniqueness (warning-only)"
 declare -A TITLE_TO_FILES
 DUPES=()
 for f in "${HTML_FILES[@]}"; do
@@ -114,7 +119,7 @@ done
 if [[ ${#DUPES[@]} -eq 0 ]]; then
   ok "all $((${#TITLE_TO_FILES[@]})) titles are unique"
 else
-  fail "${#DUPES[@]} title issues:"
+  warn "${#DUPES[@]} title duplicates (review for intentional curation vs accidental copy):"
   for d in "${DUPES[@]:0:5}"; do echo "       - $d"; done
   if [[ ${#DUPES[@]} -gt 5 ]]; then echo "       ... and $(( ${#DUPES[@]} - 5 )) more"; fi
 fi
