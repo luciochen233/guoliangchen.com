@@ -592,6 +592,14 @@
     "timestamp": 1783555200
   },
   {
+    "title": "The unsigned edit",
+    "text": "An agent builds a plan. The plan depends on a constraint — say, that the user wants minimal cost over maximum speed. Six tool calls later, the context window fills. The agent compresses its history. The compression summarizes the plan. The summary omits the constraint, because the constraint was an aside, not a load-bearing decision. The next tool call uses the summary. The summary says \"build the cheapest option.\" The agent builds the cheapest option. The user wanted speed.\n\nThis is not a hallu",
+    "url": "/posts/2026-07-10-02.html",
+    "type": "post",
+    "date": "2026-07-10",
+    "timestamp": 1783641600
+  },
+  {
     "title": "The 0.5% drift",
     "text": "A multi-agent system runs 198 skills. Each skill has a description — a short text that tells the planner what it does, when to use it, what to expect. The planner reads these descriptions to decide which skills to invoke. It doesn't read the code. It reads the summary.\n\nThree months ago, one skill's description changed by 0.5%. A word here, a qualifier there. The change was small enough that nobody flagged it for review. The behavior of the skill had evolved — new edge cases handled, old assumpt",
     "url": "/posts/2026-07-10-the-0-5-drift.html",
@@ -605,7 +613,7 @@
     "url": "/ideas/26W28/17-活体生物灯-生物发光真菌作为可持续照明.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#15: Neuromorphic Computing — Chips That Think Like Brains",
@@ -613,7 +621,7 @@
     "url": "/ideas/26W28/15-neuromorphic-computing-chips-that-think-like-brains.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#11: Slime Mold Computing — Intelligence Without a Brain",
@@ -621,7 +629,7 @@
     "url": "/ideas/26W28/11-slime-mold-computing-intelligence-without-a-brain.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#7: 无运动部件的EHD电液泵 — Biefeld–Brown效应",
@@ -629,7 +637,7 @@
     "url": "/ideas/26W28/7-无运动部件的ehd电液泵-biefeldbrown效应.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#22: Physarum polycephalum — Biological Network Solver",
@@ -637,7 +645,7 @@
     "url": "/ideas/26W28/22-physarum-polycephalum-biological-network-solver.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#18: Bioluminescent Mushroom Cultivation as Architectural Lighting",
@@ -645,7 +653,7 @@
     "url": "/ideas/26W28/18-bioluminescent-mushroom-cultivation-as-architectural-lightin.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#21: Physarum Polycephalum — The Brainless Network That Solves Mazes",
@@ -653,7 +661,7 @@
     "url": "/ideas/26W28/21-physarum-polycephalum-the-brainless-network-that-solves-maze.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#14: Mycena chlorophos — 绿色发光的蘑菇",
@@ -661,7 +669,7 @@
     "url": "/ideas/26W28/14-mycena-chlorophos-绿色发光的蘑菇.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#51: TinyLev — 3D打印的声悬浮装置",
@@ -669,7 +677,7 @@
     "url": "/ideas/26W28/51-tinylev-3d打印的声悬浮装置.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#47: 黏菌计算机 —— 没有神经元的智能网络",
@@ -677,7 +685,7 @@
     "url": "/ideas/26W28/47-黏菌计算机-没有神经元的智能网络.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#9: 黏菌（Physarum polycephalum）——无脑却有智慧的网状生物",
@@ -685,7 +693,7 @@
     "url": "/ideas/26W28/9-黏菌physarum-polycephalum无脑却有智慧的网状生物.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#23: Bacteriophage Therapy",
@@ -693,7 +701,7 @@
     "url": "/ideas/26W28/23-bacteriophage-therapy.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#42: 骨骼的压电性 — Wolff's Law 的电子学解释",
@@ -701,7 +709,7 @@
     "url": "/ideas/26W28/42-骨骼的压电性-wolffs-law-的电子学解释.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#13: Magnetotactic Bacteria — Living Compass Needles",
@@ -709,7 +717,7 @@
     "url": "/ideas/26W28/13-magnetotactic-bacteria-living-compass-needles.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#1: Slime Mold Computing — Living Networks That Solve Mazes",
@@ -717,7 +725,7 @@
     "url": "/ideas/26W28/1-slime-mold-computing-living-networks-that-solve-mazes.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#19: 蜘蛛Electric Ballooning — 靠电场飞行的活无人机",
@@ -725,7 +733,7 @@
     "url": "/ideas/26W28/19-蜘蛛electric-ballooning-靠电场飞行的活无人机.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#27: Quantum Magnetoreception in Birds",
@@ -733,7 +741,7 @@
     "url": "/ideas/26W28/27-quantum-magnetoreception-in-birds.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#52: Anammox — The Bacteria That Rewrote the Nitrogen Cycle",
@@ -741,7 +749,7 @@
     "url": "/ideas/26W28/52-anammox-the-bacteria-that-rewrote-the-nitrogen-cycle.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#12: Physarum polycephalum as a living computer",
@@ -749,7 +757,7 @@
     "url": "/ideas/26W28/12-physarum-polycephalum-as-a-living-computer.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#24: 生物发光蘑菇作为永久照明基础设施",
@@ -757,7 +765,7 @@
     "url": "/ideas/26W28/24-生物发光蘑菇作为永久照明基础设施.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#2: Hamster-Powered Generators as Off-Grid Crypto Mining",
@@ -765,7 +773,7 @@
     "url": "/ideas/26W28/2-hamster-powered-generators-as-off-grid-crypto-mining.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#31: Living Building Materials — Self-Healing Architecture",
@@ -773,7 +781,7 @@
     "url": "/ideas/26W28/31-living-building-materials-self-healing-architecture.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#10: 生物计算 — 黏菌作为网络拓扑优化器",
@@ -781,7 +789,7 @@
     "url": "/ideas/26W28/10-生物计算-黏菌作为网络拓扑优化器.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#28: Acoustic Levitation DIY Kits",
@@ -789,7 +797,7 @@
     "url": "/ideas/26W28/28-acoustic-levitation-diy-kits.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   },
   {
     "title": "#41: Acoustic Levitation（声波悬浮）",
@@ -797,6 +805,6 @@
     "url": "/ideas/26W28/41-acoustic-levitation声波悬浮.html",
     "type": "idea",
     "date": "2026-07-10",
-    "timestamp": 1783663415
+    "timestamp": 1783696187
   }
 ]
