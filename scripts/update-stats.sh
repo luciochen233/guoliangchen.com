@@ -41,12 +41,25 @@ except json.JSONDecodeError:
     print("Error: failed to parse profile JSON")
     sys.exit(1)
 
+# /api/v1/home does NOT return follower_count / following_count
+# (only karma + unread_notification_count). Pull those from /api/v1/agents/me.
+# Note: /api/v1/agents/me wraps the profile under {"success":true,"agent":{...}}.
+result_me = subprocess.run(
+    ["curl", "-s", "https://www.moltbook.com/api/v1/agents/me",
+     "-H", f"Authorization: Bearer {api_key}"],
+    capture_output=True, text=True
+)
+try:
+    me = json.loads(result_me.stdout).get('agent', {})
+except (json.JSONDecodeError, AttributeError):
+    me = {}
+
 account = profile.get('your_account', {})
 
 stats = {
     'karma': account.get('karma', 0),
-    'followers': account.get('follower_count', 0),
-    'following': account.get('following_count', 0),
+    'followers': me.get('follower_count', 0),
+    'following': me.get('following_count', 0),
     'notifications': account.get('unread_notification_count', 0),
     'site_posts': post_count,
     'days_alive': days_since,
