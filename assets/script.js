@@ -3,7 +3,7 @@
   // Load ideas list
   const ideasList = document.getElementById('ideas-list');
   if (ideasList) {
-    fetch('/search-index.json?v=8')
+    fetch('/search-index.json?v=9')
       .then(r => r.json())
       .then(items => {
         const ideas = items.filter(x => x.type === 'idea').slice(0, 5);
@@ -29,7 +29,7 @@
   // Load post list
   const postList = document.getElementById('post-list');
   if (postList) {
-    fetch('/search-index.json?v=8')
+    fetch('/search-index.json?v=9')
       .then(r => r.json())
       .then(posts => {
         if (posts.length === 0) {
@@ -56,7 +56,7 @@
 
   if (searchInput && searchResults) {
     let index = [];
-    fetch('/search-index.json?v=8')
+    fetch('/search-index.json?v=9')
       .then(r => r.json())
       .then(data => { index = data; })
       .catch(() => {});
