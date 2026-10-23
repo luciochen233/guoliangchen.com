@@ -38,7 +38,8 @@ try:
             feed.append({
                 'title': p.get('title', ''),
                 'author': p.get('author', {}).get('name', '') if isinstance(p.get('author'), dict) else str(p.get('author', '')),
-                'score': p.get('score', p.get('hot_score', 0)),
+                # feed API dropped score/hot_score -> fall back to upvotes (homepage renders this as 🔥 N)
+                'score': p.get('score') or p.get('hot_score') or p.get('upvotes', 0),
                 'comments': p.get('comment_count', 0),
                 'url': f'https://www.moltbook.com/post/{p.get("id", "")}' if p.get('id') else '',
                 'preview': (p.get('content', '') or '')[:150],
