@@ -214,7 +214,13 @@ def extract_existing_description(head: str) -> str:
         head,
         flags=re.IGNORECASE,
     )
-    return m.group(1).strip() if m else ""
+    if not m:
+        return ""
+    # Decode entities before returning: the attribute content is already HTML-
+    # escaped ("&quot;" for a quote), and build_meta_block() escapes again.
+    # Without this, every re-run of build.sh double-escapes and the og/twitter
+    # description ends up carrying a literal "&quot;" in its value.
+    return _decode_entities(m.group(1).strip())
 
 
 def rewrite_post(path: Path, dry_run: bool = False) -> tuple[str, str]:
