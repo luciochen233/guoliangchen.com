@@ -183,6 +183,23 @@ def parse_ideas_from_file(filepath):
 def idea_url(idea):
     return f"/ideas/{idea['week']}/{idea['num']}{idea['dup']}-{idea['slug']}.html"
 
+
+def existing_week_dirs():
+    """Week folders already published on disk, oldest first."""
+    if not os.path.isdir(IDEAS_DIR):
+        return []
+    return sorted(d for d in os.listdir(IDEAS_DIR)
+                  if re.match(r'^\d{2}W\d{2}$', d)
+                  and os.path.isdir(os.path.join(IDEAS_DIR, d)))
+
+
+def find_published_week(fname):
+    """Return the week folder that already holds this idea page, else None."""
+    for wf in existing_week_dirs():
+        if os.path.exists(os.path.join(IDEAS_DIR, wf, fname)):
+            return wf
+    return None
+
 def build_idea_html(idea, all_ideas):
     title = idea['title']
     body = idea['body']
@@ -441,7 +458,32 @@ def main():
     all_ideas = unique_ideas
     
     print(f"Total unique: {len(all_ideas)}")
-    
+
+    # --- publish-once guard -------------------------------------------------
+    # An idea whose page already exists on disk keeps its existing week folder
+    # AND its existing file (never overwritten, never re-dated).
+    #
+    # Why: the archive file has no `Date:` lines, so parse_date() falls through
+    # to datetime.now(). Every weekly run therefore re-stamped the same 25
+    # archived ideas with today's date and published them into a brand new week
+    # folder. By 2026-10-26 that had produced 24 identical folders (26W18 …
+    # 26W43) = 575 duplicate pages of the same 25 ideas, all in sitemap.xml.
+    # Only genuinely new ideas get a new folder.
+    published = 0
+    for idea in all_ideas:
+        fname = f"{idea['num']}{idea['dup']}-{idea['slug']}.html"
+        wf = find_published_week(fname)
+        if wf:
+            idea['week'] = wf
+            idea['published'] = True
+            published += 1
+    new_ideas = [i for i in all_ideas if not i.get('published')]
+    print(f"Already published: {published} | new: {len(new_ideas)}")
+
+    if not new_ideas:
+        print("No new ideas to publish — skipping rebuild (site left untouched).")
+        return
+
     # Build week folders
     by_week = {}
     for idea in all_ideas:
@@ -449,30 +491,37 @@ def main():
         if wf not in by_week:
             by_week[wf] = []
         by_week[wf].append(idea)
-    
+
+    written_weeks = set()
     for wf, ideas in by_week.items():
         week_dir = os.path.join(IDEAS_DIR, wf)
         os.makedirs(week_dir, exist_ok=True)
         
-        # Build individual pages
+        # Build individual pages (never overwrite an already-published page)
         for idea in ideas:
-            html = build_idea_html(idea, all_ideas)
             fname = f"{idea['num']}{idea['dup']}-{idea['slug']}.html"
             path = os.path.join(week_dir, fname)
+            if os.path.exists(path):
+                continue
+            html = build_idea_html(idea, all_ideas)
             with open(path, 'w') as f:
                 f.write(html)
+            written_weeks.add(wf)
         
-        # Build week index
-        index_html = build_week_index(wf, ideas)
-        with open(os.path.join(week_dir, 'index.html'), 'w') as f:
-            f.write(index_html)
+        # Build week index (only for weeks that actually received new pages —
+        # rewriting an existing index would strip the injected SEO/perf head)
+        if wf in written_weeks:
+            index_html = build_week_index(wf, ideas)
+            with open(os.path.join(week_dir, 'index.html'), 'w') as f:
+                f.write(index_html)
         
-        print(f"  wrote {wf}/ ({len(ideas)} ideas)")
+        print(f"  {wf}/ ({len(ideas)} ideas, {sum(1 for i in ideas if i.get('published'))} already published)")
     
-    # Build main index
-    with open(os.path.join(IDEAS_DIR, 'index.html'), 'w') as f:
-        f.write(build_main_index(all_ideas))
-    print(f"wrote /ideas/index.html")
+    # Build main index (only if something was actually published)
+    if written_weeks:
+        with open(os.path.join(IDEAS_DIR, 'index.html'), 'w') as f:
+            f.write(build_main_index(all_ideas))
+        print(f"wrote /ideas/index.html")
     
     # Update search
     # Rebuild search index using unified script
