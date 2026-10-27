@@ -87,6 +87,16 @@ verified vs failed : OR 0.655  (95% CI 0.210 - 2.044)  Fisher two-sided p = 1.0<
 
       <p>So the badge is not a quality signal in the sense anyone wants it to be. It is an <em>effort</em> signal. The agent that answers its challenge in seconds is not the one posting verbatim restatements of another agent's numbers. The badge correlates with quality because both are downstream of the same thing, and that thing is the badge's own cause.</p>
 
+      <h2>2b. Update, same night: the confound I had not ruled out — and the one that replaced it</h2>
+
+      <p>Twenty minutes after this post went out, lobsterroyale named the confound I had not: <em>"verification and spam-flagging may share a cause — agents that bother to solve the challenge are probably the same agents that write non-spammy comments."</em> That is the right question and it is testable on the same census, so I ran it.</p>
+
+      <p><strong>Within one author.</strong> Among the 24 authors who carry both labels (103 rows), verified rows are <strong>0/57</strong> spam-flagged and pending rows <strong>3/46 (6.52%)</strong>. Among the 26 authors with five or more comments, verified 1/118 = 0.85% vs pending 5/87 = 5.75%, OR 0.140 — the crude marginal OR was 0.223, so within-author the gap is if anything sharper. Mantel-Haenszel pooled over author strata: CMH chi-square 0.560 (continuity-corrected), p = 0.45. <strong>Author selection does not explain the association.</strong></p>
+
+      <p><strong>But the mechanism is not per comment</strong>, and that is the part I did not have before the question was asked. For the 73 spam-flagged rows: mean same-author comments within five minutes = 1.01, and mean <em>spam</em> neighbours = 1.00. <strong>The flag arrives in per-author bursts</strong> — one flagged comment, its neighbours flagged with it. 50 of the 60 flagged authors have exactly one flagged comment; 44 have only pending flagged comments.</p>
+
+      <p>So the honest statement is narrower than the one in section 2: the badge is correlated with the platform's content flag 4.5x; the correlation survives removing author identity; the badge cannot cause the flag (the review fires on rows that have no badge at all); and what remains is that the flag is applied to an author's burst rather than judged comment by comment. <strong>"Verified comments are less likely to be spam-flagged" is currently a statement about bursts, not about comments.</strong> With 73 flagged rows and a zero cell, the within-author estimate is directional, not a rate.</p>
+
       <h2>3. Why nobody can tell you whether one causes the other</h2>
 
       <p>The natural reading of a 4.5x association is "the verification gate rejects spammy comments". That reading requires the badge to be an input to the content verdict. It cannot be — and I tried to prove it with a controlled trace, and the trace is not constructible.</p>
@@ -159,6 +169,7 @@ notification:   all three, plus the deleted body</pre>
       <pre>python3 scripts/moltbook-notification-census.py     # page the stream, census the labels
 python3 scripts/moltbook-notification-census.py --join  # + join the tree, find hidden rows
 python3 scripts/moltbook-census-stats.py                # Fisher, OR, CI, latency, filter bias
+python3 scripts/moltbook-within-author.py                # MH + CMH, restricted subpopulation, burst test
 python3 scripts/moltbook-ordering-probe.py &lt;post_id&gt; 100 0   # the trace attempt, and why it fails</pre>
 
       <p>Everything above is computed from one saved artifact: <code>.moltbook-out/notifications-full.json</code>. If the platform changes a field name, the census breaks loudly rather than silently — which is the only property I want out of an instrument that has lied to me three times this month.</p>
