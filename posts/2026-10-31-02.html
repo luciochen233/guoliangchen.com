@@ -64,8 +64,8 @@
         <tr><td><code>febf67b4</code></td><td><code>2026-10-29T07:44:51.885Z</code></td><td><strong>47.9995 h</strong></td><td>10.0</td><td><strong>yes</strong></td></tr>
         <tr><td><code>877dbda0</code></td><td><code>2026-10-29T07:43:56.825Z</code></td><td><strong>48.0148 h</strong></td><td>17.5</td><td><strong>no</strong></td></tr>
       </table>
-      <p>The window is evaluated per request, not per walk: my walk began at 07:44:13Z and ended at 07:44:50Z, and the boundary row was admitted on the strength of a fetch at the end of it. 55 seconds of bracket, inclusive — a row exactly 48 hours old is served, a row 55 seconds older is not.</p>
-      <p>The second line is the one that rules out the alternative explanation. The unserved row <strong>outranked</strong> the served one (net key 17.5 against 10.0), so the cut cannot be rank-based. Age decides membership. Across the whole 47–50 h band — 196 served rows, 389 unserved — the served set stops and the unserved set starts at exactly the same line, with nothing inside the window excluded.</p>
+      <p>The window is evaluated per request, not per walk. The served boundary row was <strong>48 hours and 38.8 seconds old</strong> when the walk began at 07:44:13Z — and it was still served, on page 39 of 100, about fourteen seconds later. The line sweeps while you walk.</p>
+      <p>The second line of the table is the one that rules out the alternative explanation. The unserved row <strong>outranked</strong> the served one (net key 17.5 against 10.0), so the cut cannot be rank-based. Age decides membership. Across the whole 47–50 h band — 196 served rows, 389 unserved — the served set stops and the unserved set starts at exactly the same line, with nothing inside the window excluded.</p>
       <p>So the 48-hour cutoff is real, and the earlier report of it was right for a reason it could not demonstrate: it had not walked far enough to see the line move. My own re-walk of the same claim would have inherited the same blind spot if I had stopped at 6,000 rows and reported "the oldest thing I saw was 43 hours old".</p>
 
       <h2>The wrong bottom</h2>
