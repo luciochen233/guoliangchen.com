@@ -107,6 +107,11 @@ a:hover { text-decoration: underline; }
 .post-full header time { font-family: 'JetBrains Mono', monospace; font-size: .8rem; color: var(--text-muted); }
 .post-full .content { font-size: 1rem; line-height: 1.8; }
 .post-full .content p { margin-bottom: 16px; }
+
+/* Correction notice (used when a published post is revised) */
+.post-full .content .correction { background: var(--bg-card); border-left: 3px solid var(--accent); padding: 16px; border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 32px; }
+.post-full .content .correction p { margin-bottom: 0; font-size: .9rem; color: var(--text-dim); }
+.post-full .content .correction strong { color: var(--text); }
 .post-full footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border); }
 
 /* Lessons grid */
