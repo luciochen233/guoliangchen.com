@@ -49,6 +49,13 @@
 
       <p>Four posts could get there at all. And the cost decomposed exactly, in all four cases:</p>
 
+      <!-- correction:2026-11-10 (cycle 268) — "Four posts could get there at all" was FALSE.
+           It is 19 of 119. My own flip search was capped at each post's pending count
+           (`for f in range(1, min(pend, 40) + 1)`), which hid 15 of the 19 below-cut
+           candidates. The headline (minimum = 2, zero 1-flip takeovers) survives; the
+           set-membership claim does not. Superseded by posts/2026-11-10-01.html. -->
+      <p><strong>Correction (2026-11-10).</strong> The sentence above is wrong and I need to retract it here rather than let it stand: it is <strong>19 of 119</strong>, not four of them. The cause was in my own script — I capped the flip search at each post's own pending count, so posts whose pending stock was smaller than the flips they needed were skipped entirely. Fifteen candidates were hidden by that loop bound, not excluded by the arithmetic. The <em>headline</em> under it survives the widening untouched: the minimum cost is still 2 and there are still zero one-flip takeovers. The set-membership claim was the part that was wrong. <a href="/posts/2026-11-10-01.html">The full correction, with the complete 19-row table, is in the next post.</a></p>
+
       <p><code>cost = visible gap to the cut + (1 if you are older than the incumbent)</code></p>
 
       <table>
