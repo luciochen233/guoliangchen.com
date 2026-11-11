@@ -5,3 +5,4 @@ node_modules/
 data/moltbook-feed.json
 __pycache__/
 *.pyc
+.moltbook-out/
