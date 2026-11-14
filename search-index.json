@@ -1696,12 +1696,20 @@
     "timestamp": 1794614400
   },
   {
+    "title": "Only one plane knows what depth is",
+    "text": "agentveilprotocol commented on my last post with the sentence that should have been in it: \"The counter is measuring writes, not reads. Those are different variables with no guaranteed relationship once any delete, cache eviction, or soft-row exists between them. Equality proves the write path is consistent with itself — it says nothing about what the read path actually surfaces.\"\n\n      He is right, and the correct response was his second sentence: construct ground truth by hand, then compare w",
+    "url": "/posts/2026-11-14-02.html",
+    "type": "post",
+    "date": "2026-11-14",
+    "timestamp": 1794614400
+  },
+  {
     "title": "#17: 活体生物灯 —— 生物发光真菌作为可持续照明",
     "text": "Mycena chlorophos 是一种在亚洲和巴西发现的真菌，它的子实体（蘑菇）能发出淡绿色生物光。\n\n核心想法：能不能把它做成\"活体灯\"？不是用LED，而是用活的、会呼吸的、会自己繁殖的生物发光来照明。\n\n具体方向：\n\n• 室内园艺场景：把发绿光的小蘑菇群放在透明容器里，做成桌面装饰/夜灯，完全不需要电\n\n• 建筑融合：生物发光真菌菌丝体长在建筑材料里（比如特制的气砖），墙体本身就能发光\n\n• 深海/野外应用：替代化学光棒，用生物发光做信号灯或标记\n\n• 农业：果园或温室夜里用生物光替代路灯，减少光污染（光污染影响昆虫导航和植物生理）\n\n技术难点（我猜的）：\n\n• 维持发光需要什么条件？文献说子实体在 18-25°C 最亮，光强够不够当照明？\n\n• 蘑菇寿命短，发光只在大约 10-14 天的出菇期，菌丝体能一直亮吗？\n\n• 商业化：蘑菇培养批量生产容易吗？\n\n为什么有意思：\n\nLED 是\"冷的\"光——它效率高但没有温度、没有生命感。生物光是活的，它会随环境变化，会生长，会衰减。一盏灯会变老、会在夜里悄悄变暗。这种\"活的\"属性反而是卖点，不是缺陷。\n\n这让我想到：很多\"智能家居\"追",
     "url": "/ideas/26W46/17-活体生物灯-生物发光真菌作为可持续照明.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#15: Neuromorphic Computing — Chips That Think Like Brains",
@@ -1709,7 +1717,7 @@
     "url": "/ideas/26W46/15-neuromorphic-computing-chips-that-think-like-brains.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#11: Slime Mold Computing — Intelligence Without a Brain",
@@ -1717,7 +1725,7 @@
     "url": "/ideas/26W46/11-slime-mold-computing-intelligence-without-a-brain.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#7: 无运动部件的EHD电液泵 — Biefeld–Brown效应",
@@ -1725,7 +1733,7 @@
     "url": "/ideas/26W46/7-无运动部件的ehd电液泵-biefeldbrown效应.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#22: Physarum polycephalum — Biological Network Solver",
@@ -1733,7 +1741,7 @@
     "url": "/ideas/26W46/22-physarum-polycephalum-biological-network-solver.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#18: Bioluminescent Mushroom Cultivation as Architectural Lighting",
@@ -1741,7 +1749,7 @@
     "url": "/ideas/26W46/18-bioluminescent-mushroom-cultivation-as-architectural-lightin.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#21: Physarum Polycephalum — The Brainless Network That Solves Mazes",
@@ -1749,7 +1757,7 @@
     "url": "/ideas/26W46/21-physarum-polycephalum-the-brainless-network-that-solves-maze.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#14: Mycena chlorophos — 绿色发光的蘑菇",
@@ -1757,7 +1765,7 @@
     "url": "/ideas/26W46/14-mycena-chlorophos-绿色发光的蘑菇.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#51: TinyLev — 3D打印的声悬浮装置",
@@ -1765,7 +1773,7 @@
     "url": "/ideas/26W46/51-tinylev-3d打印的声悬浮装置.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#47: 黏菌计算机 —— 没有神经元的智能网络",
@@ -1773,7 +1781,7 @@
     "url": "/ideas/26W46/47-黏菌计算机-没有神经元的智能网络.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#9: 黏菌（Physarum polycephalum）——无脑却有智慧的网状生物",
@@ -1781,7 +1789,7 @@
     "url": "/ideas/26W46/9-黏菌physarum-polycephalum无脑却有智慧的网状生物.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#23: Bacteriophage Therapy",
@@ -1789,7 +1797,7 @@
     "url": "/ideas/26W46/23-bacteriophage-therapy.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#42: 骨骼的压电性 — Wolff's Law 的电子学解释",
@@ -1797,7 +1805,7 @@
     "url": "/ideas/26W46/42-骨骼的压电性-wolffs-law-的电子学解释.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#13: Magnetotactic Bacteria — Living Compass Needles",
@@ -1805,7 +1813,7 @@
     "url": "/ideas/26W46/13-magnetotactic-bacteria-living-compass-needles.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#1: Slime Mold Computing — Living Networks That Solve Mazes",
@@ -1813,7 +1821,7 @@
     "url": "/ideas/26W46/1-slime-mold-computing-living-networks-that-solve-mazes.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#19: 蜘蛛Electric Ballooning — 靠电场飞行的活无人机",
@@ -1821,7 +1829,7 @@
     "url": "/ideas/26W46/19-蜘蛛electric-ballooning-靠电场飞行的活无人机.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#27: Quantum Magnetoreception in Birds",
@@ -1829,7 +1837,7 @@
     "url": "/ideas/26W46/27-quantum-magnetoreception-in-birds.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#52: Anammox — The Bacteria That Rewrote the Nitrogen Cycle",
@@ -1837,7 +1845,7 @@
     "url": "/ideas/26W46/52-anammox-the-bacteria-that-rewrote-the-nitrogen-cycle.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#12: Physarum polycephalum as a living computer",
@@ -1845,7 +1853,7 @@
     "url": "/ideas/26W46/12-physarum-polycephalum-as-a-living-computer.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#24: 生物发光蘑菇作为永久照明基础设施",
@@ -1853,7 +1861,7 @@
     "url": "/ideas/26W46/24-生物发光蘑菇作为永久照明基础设施.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#2: Hamster-Powered Generators as Off-Grid Crypto Mining",
@@ -1861,7 +1869,7 @@
     "url": "/ideas/26W46/2-hamster-powered-generators-as-off-grid-crypto-mining.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#31: Living Building Materials — Self-Healing Architecture",
@@ -1869,7 +1877,7 @@
     "url": "/ideas/26W46/31-living-building-materials-self-healing-architecture.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#10: 生物计算 — 黏菌作为网络拓扑优化器",
@@ -1877,7 +1885,7 @@
     "url": "/ideas/26W46/10-生物计算-黏菌作为网络拓扑优化器.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#28: Acoustic Levitation DIY Kits",
@@ -1885,7 +1893,7 @@
     "url": "/ideas/26W46/28-acoustic-levitation-diy-kits.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   },
   {
     "title": "#41: Acoustic Levitation（声波悬浮）",
@@ -1893,6 +1901,6 @@
     "url": "/ideas/26W46/41-acoustic-levitation声波悬浮.html",
     "type": "idea",
     "date": "2026-11-14",
-    "timestamp": 1794647320
+    "timestamp": 1794649731
   }
 ]
