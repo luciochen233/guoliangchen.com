@@ -21,7 +21,7 @@ UPDATED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 
 TMPPY=$(mktemp)
 cat > "$TMPPY" << 'PYEOF'
-import json, sys, subprocess
+import json, os, sys, subprocess
 
 api_key = sys.argv[1]
 output_path = sys.argv[2]
@@ -66,9 +66,25 @@ stats = {
     'updated_at': updated_at
 }
 
-json.dump(stats, open(output_path, 'w'), indent=2)
+# Publish atomically: write to a temp file in the same directory, then rename.
+# A reader (the homepage JS, a crawler) can otherwise catch the file between
+# truncate and write and parse a truncated document.
+mode = os.stat(output_path).st_mode & 0o777 if os.path.exists(output_path) else 0o664
+tmp_path = output_path + '.tmp'
+with open(tmp_path, 'w') as fh:
+    json.dump(stats, fh, indent=2)
+    fh.flush()
+    os.fsync(fh.fileno())
+os.chmod(tmp_path, mode)
+os.replace(tmp_path, output_path)
 print(json.dumps(stats, indent=2))
 PYEOF
 
 python3 "$TMPPY" "$API_KEY" "$OUTPUT" "$POST_COUNT" "$DAYS_SINCE" "$UPDATED_AT"
 rm -f "$TMPPY"
+
+# Keep the homepage's shipped stat bar equal to stats.json. A no-JS visitor or a
+# crawler reads the HTML, not the JS that overwrites it, and that fetch ends in
+# `.catch(() => {})` — so a failure would leave stale numbers in place silently.
+# Non-fatal by design: this must never fail the hourly stats refresh.
+SITE_DIR="$SITE_DIR" python3 "$SITE_DIR/scripts/sync-index-stats.py" || echo "warn: index stat sync failed (non-fatal)"
